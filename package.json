@@ -1,0 +1,33 @@
+{
+  "name": "@anzuev/studcloud.WA",
+  "version": "1.0.0",
+  "description": "WA for StudCloud project.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "studcloud",
+    "wa"
+  ],
+  "repository": "https://github.com/AnZuev/StudCloud.WA.git",
+  "author": "mtdr",
+  "license": "ISC",
+  "dependencies": {
+    "@anzuev/studcloud.datamodels": "*",
+    "@anzuev/studcloud.errors": "^0.2.0",
+    "@anzuev/studcloud.fileinterface": "^1.1.2",
+    "@anzuev/studcloud.sso": "^2.0.2",
+    "connect-mongo": "^1.2.0",
+    "express-session": "^1.13.0",
+    "koa": "^1.2.0",
+    "koa-router": "^5.4.0",
+    "log4js": "^0.6.37",
+    "mongodb": "^2.1.18",
+    "mongoose": "^4.5.0",
+    "nconf": "^0.8.4",
+    "q": "^1.4.1",
+    "router": "^1.1.4",
+    "winston": "^2.2.0"
+  }
+}

@@ -1,0 +1,16 @@
+node_modules/**/
+node_modules/*
+*.md
+*.idea/*
+
+.idea/workspace.xml
+
+.idea/codeStyleSettings.xml
+
+*.xml
+
+.idea/workspace.xml
+
+.idea/jsLibraryMappings.xml
+.idea/libraries/node_modules.xml
+.idea/jsLibraryMappings.xml
