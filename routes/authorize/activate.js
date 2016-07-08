@@ -3,12 +3,11 @@
 let config = require(appRoot+'/config');
 
 let sso = require('@anzuev/studcloud.sso');
+let uams = require('@anzuev/studcloud.uams');
 
-
-Q.async(function*(req, res, next){
-    var mail = req.query.mail || "";
-    var key = req.query.key || "";
+function* activation(req, res, next){
+  
     
 
 
-});
+}

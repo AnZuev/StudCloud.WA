@@ -13,7 +13,8 @@ log4js.configure({
                 type:'file',
                 filename:appRoot + '/libs/logs/wa_warnings.log',
                 layout:{
-                    type: "messagePassThrough"
+                    type: 'pattern',
+                    pattern: "[%d] - %m%n"
                 }
             }
         },
@@ -26,22 +27,22 @@ log4js.configure({
                 type:'file',
                 filename:appRoot + '/libs/logs/wa_debugs.log',
                 layout:{
-                    type: "messagePassThrough"
+                    type: 'pattern',
+                    pattern: "[%d] - %m%n"
                 }
             }
         },
         {
             category: 'wa',
             type: 'file',
+            level:"ALL",
             filename: appRoot + '/libs/logs/wa_allLogs.log',
             layout: {
-                type: "messagePassThrough"
+                type: 'pattern',
+                pattern: "[%d] - %m%n"
             }
         }
-    ],
-    levels: {
-        wa: "TRACE"
-    }
+    ]
 });
 
 module.exports = log4js.getLogger('wa');
