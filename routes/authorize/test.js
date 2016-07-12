@@ -3,13 +3,14 @@ let mongoose = require('mongoose');
 let sso = require('@anzuev/studcloud.sso');
 let log = require(appRoot + '/libs/log');
 
-function* answer(module){
+function* answer(){
     let mail,key;
     try {
-         mail = yield module.request.body.mail;
+        mail = this.request.body.mail;
         // let key = mongoose.Types.ObjectId(this.request.key);
-         key = yield module.request.body.key;
-
+        key =  this.request.body.key;
+        // log.info(sso.checkAuthMiddleware);
+        return {1:mail,2:key};
         // yield sso.confirmMail(mail,key);
     } catch (err) {
         log.info(err + "ERROR");
@@ -17,6 +18,6 @@ function* answer(module){
         // else if(err.code == 403) next(403); //auth error
         // else return next(err);
     }
-    return {1:mail,2:key};
+    // return {1:mail,2:key};
 }
 module.exports = answer;

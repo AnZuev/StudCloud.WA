@@ -6,7 +6,7 @@ let uams = require('@anzuev/studcloud.uams');
 
 function* answer(next){
     try {
-        let mail = this._Users.mail;
+        let mail = sso.checkAuthMiddleware;
         let key = mongoose.Types.ObjectId(req.body.key);
         yield this.user.confirmMail(mail,key);
         uams.getUsersByMailConfirmation();
