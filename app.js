@@ -12,38 +12,7 @@ let config = require(appRoot + '/config');
 var bodyParser = require('koa-bodyparser');
 app.use(bodyParser());
 
-// let config =
-// {
-//     "mongoose":{
-//         "UsersUri": "mongodb://127.0.0.1/test",
-//         "PSSUri": "mongodb://127.0.0.1/test",
-//         "SSOUri": "mongodb://127.0.0.1/test"
-//     },
-//     "sso":{
-//         "session":{
-//             "secret": "superSecretKey",
-//             "key": "StudCloud:session:",
-//             "cookie":{
-//                 "path": "/",
-//                 "maxAge":2592000000,
-//                 "httpOnly": true
-//             }
-//         }
-//     },
-//     "logs":{
-//         "UAMS":{
-//             "path": "/git/StudCloud.SSO/libs/logs/UAMS.log",
-//             "label": "UAMS"
-//         },
-//         "SSO":{
-//             "path": "/git/StudCloud.SSO/libs/logs/SSO.log",
-//             "label": "SSO"
-//         }
-//     }
-//
-// };
 sso.configure(config);
-
 
 app
     .use(router.routes())
@@ -60,15 +29,10 @@ app.use(function *(next) {
     }
 });
 
-app.use(function *(next) {
-    //This will set status and message
-    this.throw('Error Message', 500);
-});
-
-app.use(function *(next) {
-    //This will only set message
-    throw new Error('Error Message');
-});
+// app.use(function *(next) {
+//     //This will set status and message
+//     this.throw('Error Message', 500);
+// });
 
 router.get('/', function *(next) {
     this.status = 200;
@@ -85,7 +49,7 @@ router.post('/test', function* (next){
     this.body = a;
 });
 
-router.post('/signUp', function* (next){
+router.post('/auth/signUp', function* (next) {
     let f = require('./routes/authorize/signUp');
     let a = yield f;
     // let a = {
