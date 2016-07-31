@@ -1,12 +1,14 @@
 'use strict';
+let sso = require('@anzuev/studcloud.sso');
+let log = require(appRoot + '/libs/log');
+let uams = require('@anzuev/studcloud.uams');
 
-let Q = require('q');
-
-Q.async(function*(req, res){
-
-    if(res.req.headers['x-requested-with'] == 'XMLHttpRequest'){
-        req.session.user = null;
-        res.end();
+function* a(){
+    try {
+        let result = yield sso.logout();
+        return result;
+    } catch (err) {
+        log.info(err + "ERROR");
     }
-
-});
+}
+module.exports = a;
