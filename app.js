@@ -4,15 +4,17 @@ let path = require('path');
 global.appRoot = path.resolve(__dirname)+ '/';
 let koa = require('koa');
 let app = koa();
-let co = require('co');
 let sso = require('@anzuev/studcloud.sso');
 var router = require('koa-router')();
 var log = require(appRoot + '/libs/log');
 let config = require(appRoot + '/config');
 var bodyParser = require('koa-bodyparser');
+//const rds = require('@anzuev/studcloud.rds');
 app.use(bodyParser());
 
 sso.configure(config);
+//rds.configure(config);
+
 
 app
     .use(router.routes())
@@ -68,6 +70,24 @@ router.post('/auth/signIn', function* (next) {
     log.info(a);
     this.body = a;
 });
+
+router.post('/auth/signInCorrect', function*(next){
+	// проверка что параметры переданы от юзера
+	// ...
+
+	/*
+		Поместили данные в this.authData
+	 */
+	this.authData = {};
+	this.authData.mail = this.request.body.mail;
+	this.authData.password = this.request.body.password;
+
+	try{
+		yield next;
+	}catch (err){
+		//что-то пошло не так, обрабатываем ошибку
+	}
+}, sso.signIn);
 
 router.post('/auth/logOut', function* (next){
     let f = require('./routes/authorize/logOut');
