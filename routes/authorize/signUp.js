@@ -3,8 +3,8 @@ let mongoose = require('mongoose');
 let sso = require('@anzuev/studcloud.sso');
 let log = require(appRoot + '/libs/log');
 let uams = require('@anzuev/studcloud.uams');
-let rds = require('@anzuev/studcloud.rds');
-let University = require('@anzuev/studcloud.rds').getUniversityModel();
+// let rds = require('@anzuev/studcloud.rds');
+// let University = require('@anzuev/studcloud.rds').getUniversityModel();
 
 function* a(){
     try {
@@ -38,7 +38,7 @@ function* a(){
         // uams.getUsersByMailConfirmation();
         // return "";
     } catch (err) {
-        log.info(err + "ERROR");
+        log.info(err + " ERROR");
         // if (err.code == 400) next(400); //validation err
         // else if(err.code == 403) next(403); //auth error
         // else return next(err);

@@ -23,6 +23,10 @@
     "SSO":{
       "path": "/git/StudCloud.WA/libs/logs/SSO.log",
       "label": "SSO"
+    },
+    "RDS":{
+      "path": "/git/StudCloud.WA/libs/logs/RDS.log",
+      "label": "RDS"
     }
   }
 

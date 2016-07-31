@@ -29,10 +29,10 @@ app.use(function *(next) {
     }
 });
 
-// app.use(function *(next) {
-//     //This will set status and message
-//     this.throw('Error Message', 500);
-// });
+app.use(function *(next) {
+    //This will set status and message
+    this.throw(this.err.message, 500);
+});
 
 router.get('/', function *(next) {
     this.status = 200;
@@ -59,6 +59,16 @@ router.post('/auth/signUp', function* (next) {
     this.body = a;
 });
 
+router.post('/auth/signIn', function* (next) {
+    let f = require('./routes/authorize/signIn');
+    let a = yield f;
+    // let a = {
+    //     1: this.request.body.mail,
+    //     2: this.request.body.key};
+    log.info(a);
+    this.body = a;
+});
+
 router.post('/auth/logOut', function* (next){
     let f = require('./routes/authorize/logOut');
     let a = yield f;
@@ -68,6 +78,16 @@ router.post('/auth/logOut', function* (next){
 router.post('/auth/confirmMail', function* (next){
     let f = require('./routes/authorize/confirmMail');
     let a = yield f;
+    log.info(a);
+    this.body = a;
+});
+
+router.post('/documents/addDocument', function* (next) {
+    let f = require('./routes/documents/addDocument');
+    let a = yield f;
+    // let a = {
+    //     1: this.request.body.mail,
+    //     2: this.request.body.key};
     log.info(a);
     this.body = a;
 });
