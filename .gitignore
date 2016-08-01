@@ -14,3 +14,4 @@ node_modules/*
 .idea/jsLibraryMappings.xml
 .idea/libraries/node_modules.xml
 .idea/jsLibraryMappings.xml
+libs/logs/UAMS.log
