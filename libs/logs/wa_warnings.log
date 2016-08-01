@@ -34,3 +34,19 @@
 
 [2016-07-08 13:27:05.737] - fatal
 
+[2016-08-01 16:06:54.356] - { [AuthError: mail anzuev@bk.ru already in use] message: 'mail anzuev@bk.ru already in use', code: 400 }
+AuthError: mail anzuev@bk.ru already in use
+    at Function.User.statics.createUser (/Users/anton/GitHub/StudCloud.WA/node_modules/@anzuev/studcloud.uams/library/general.js:46:9)
+    at next (native)
+    at Function.UAMS.createUser (/Users/anton/GitHub/StudCloud.WA/node_modules/@anzuev/studcloud.uams/index.js:356:15)
+    at next (native)
+    at onFulfilled (/Users/anton/GitHub/StudCloud.WA/node_modules/koa/node_modules/co/index.js:65:19)
+    at _fulfilled (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:834:54)
+    at self.promiseDispatch.done (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:863:30)
+    at Promise.promise.promiseDispatch (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:796:13)
+    at /Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:604:44
+    at runSingle (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:137:13)
+    at flush (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:125:13)
+    at nextTickCallbackWith0Args (node.js:452:9)
+    at process._tickCallback (node.js:381:13)
+

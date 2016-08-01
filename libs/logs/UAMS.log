@@ -23,3 +23,278 @@
 [2016-07-31 20:22:10.993] [INFO] UAMS - UAMS has been successfully configured and started
 [2016-07-31 20:22:53.247] [INFO] UAMS - UAMS has been successfully configured and started
 [2016-07-31 21:32:59.107] [INFO] UAMS - UAMS has been successfully configured and started
+[2016-08-01 15:15:10.982] [INFO] UAMS - UAMS has been successfully configured and started
+[2016-08-01 15:15:54.708] [INFO] UAMS - UAMS has been successfully configured and started
+[2016-08-01 15:16:29.346] [INFO] UAMS - UAMS has been successfully configured and started
+[2016-08-01 15:19:11.395] [INFO] UAMS - UAMS has been successfully configured and started
+[2016-08-01 15:20:46.908] [INFO] UAMS - UAMS has been successfully configured and started
+[2016-08-01 15:25:42.056] [INFO] UAMS - UAMS has been successfully configured and started
+[2016-08-01 15:37:08.426] [INFO] UAMS - UAMS has been successfully configured and started
+[2016-08-01 15:39:58.370] [INFO] UAMS - UAMS has been successfully configured and started
+[2016-08-01 15:40:58.427] [INFO] UAMS - UAMS has been successfully configured and started
+[2016-08-01 15:41:00.090] [TRACE] UAMS - new user with mail added anzuev@bk.ru
+[2016-08-01 15:42:46.031] [INFO] UAMS - UAMS has been successfully configured and started
+[2016-08-01 15:44:30.193] [INFO] UAMS - UAMS has been successfully configured and started
+[2016-08-01 15:45:00.204] [INFO] UAMS - UAMS has been successfully configured and started
+[2016-08-01 15:45:50.653] [INFO] UAMS - UAMS has been successfully configured and started
+[2016-08-01 15:46:18.221] [INFO] UAMS - UAMS has been successfully configured and started
+[2016-08-01 15:46:24.635] [INFO] UAMS - UAMS has been successfully configured and started
+[2016-08-01 15:48:14.699] [INFO] UAMS - UAMS has been successfully configured and started
+[2016-08-01 15:49:52.276] [INFO] UAMS - UAMS has been successfully configured and started
+[2016-08-01 15:51:36.201] [INFO] UAMS - UAMS has been successfully configured and started
+[2016-08-01 15:51:38.879] [INFO] UAMS - UAMS has been successfully configured and started
+[2016-08-01 15:52:31.753] [INFO] UAMS - UAMS has been successfully configured and started
+[2016-08-01 15:53:43.325] [INFO] UAMS - UAMS has been successfully configured and started
+[2016-08-01 15:54:19.983] [INFO] UAMS - UAMS has been successfully configured and started
+[2016-08-01 15:54:48.899] [INFO] UAMS - UAMS has been successfully configured and started
+[2016-08-01 15:55:14.901] [INFO] UAMS - UAMS has been successfully configured and started
+[2016-08-01 15:56:52.353] [INFO] UAMS - UAMS has been successfully configured and started
+[2016-08-01 15:56:55.626] [INFO] UAMS - UAMS has been successfully configured and started
+[2016-08-01 15:57:45.466] [INFO] UAMS - UAMS has been successfully configured and started
+[2016-08-01 15:57:54.528] [INFO] UAMS - UAMS has been successfully configured and started
+[2016-08-01 15:58:02.345] [INFO] UAMS - UAMS has been successfully configured and started
+[2016-08-01 16:06:51.057] [INFO] UAMS - UAMS has been successfully configured and started
+[2016-08-01 16:06:54.305] [WARN] UAMS - { [AuthError: mail anzuev@bk.ru already in use] message: 'mail anzuev@bk.ru already in use', code: 400 }
+AuthError: mail anzuev@bk.ru already in use
+    at Function.User.statics.createUser (/Users/anton/GitHub/StudCloud.WA/node_modules/@anzuev/studcloud.uams/library/general.js:46:9)
+    at next (native)
+    at Function.UAMS.createUser (/Users/anton/GitHub/StudCloud.WA/node_modules/@anzuev/studcloud.uams/index.js:356:15)
+    at next (native)
+    at onFulfilled (/Users/anton/GitHub/StudCloud.WA/node_modules/koa/node_modules/co/index.js:65:19)
+    at _fulfilled (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:834:54)
+    at self.promiseDispatch.done (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:863:30)
+    at Promise.promise.promiseDispatch (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:796:13)
+    at /Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:604:44
+    at runSingle (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:137:13)
+    at flush (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:125:13)
+    at nextTickCallbackWith0Args (node.js:452:9)
+    at process._tickCallback (node.js:381:13)
+[2016-08-01 16:07:45.501] [INFO] UAMS - UAMS has been successfully configured and started
+[2016-08-01 16:07:47.501] [WARN] UAMS - { [AuthError: mail anzuev@bk.ru already in use] message: 'mail anzuev@bk.ru already in use', code: 400 }
+AuthError: mail anzuev@bk.ru already in use
+    at Function.User.statics.createUser (/Users/anton/GitHub/StudCloud.WA/node_modules/@anzuev/studcloud.uams/library/general.js:46:9)
+    at next (native)
+    at Function.UAMS.createUser (/Users/anton/GitHub/StudCloud.WA/node_modules/@anzuev/studcloud.uams/index.js:356:15)
+    at next (native)
+    at onFulfilled (/Users/anton/GitHub/StudCloud.WA/node_modules/koa/node_modules/co/index.js:65:19)
+    at _fulfilled (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:834:54)
+    at self.promiseDispatch.done (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:863:30)
+    at Promise.promise.promiseDispatch (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:796:13)
+    at /Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:604:44
+    at runSingle (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:137:13)
+    at flush (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:125:13)
+    at nextTickCallbackWith0Args (node.js:452:9)
+    at process._tickCallback (node.js:381:13)
+[2016-08-01 16:07:48.157] [WARN] UAMS - { [AuthError: mail anzuev@bk.ru already in use] message: 'mail anzuev@bk.ru already in use', code: 400 }
+AuthError: mail anzuev@bk.ru already in use
+    at Function.User.statics.createUser (/Users/anton/GitHub/StudCloud.WA/node_modules/@anzuev/studcloud.uams/library/general.js:46:9)
+    at next (native)
+    at Function.UAMS.createUser (/Users/anton/GitHub/StudCloud.WA/node_modules/@anzuev/studcloud.uams/index.js:356:15)
+    at next (native)
+    at onFulfilled (/Users/anton/GitHub/StudCloud.WA/node_modules/koa/node_modules/co/index.js:65:19)
+    at _fulfilled (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:834:54)
+    at self.promiseDispatch.done (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:863:30)
+    at Promise.promise.promiseDispatch (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:796:13)
+    at /Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:604:44
+    at runSingle (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:137:13)
+    at flush (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:125:13)
+    at nextTickCallbackWith0Args (node.js:452:9)
+    at process._tickCallback (node.js:381:13)
+[2016-08-01 16:08:42.399] [INFO] UAMS - UAMS has been successfully configured and started
+[2016-08-01 16:08:47.198] [WARN] UAMS - { [AuthError: mail anzuev@bk.ru already in use] message: 'mail anzuev@bk.ru already in use', code: 400 }
+AuthError: mail anzuev@bk.ru already in use
+    at Function.User.statics.createUser (/Users/anton/GitHub/StudCloud.WA/node_modules/@anzuev/studcloud.uams/library/general.js:46:9)
+    at next (native)
+    at Function.UAMS.createUser (/Users/anton/GitHub/StudCloud.WA/node_modules/@anzuev/studcloud.uams/index.js:356:15)
+    at next (native)
+    at onFulfilled (/Users/anton/GitHub/StudCloud.WA/node_modules/koa/node_modules/co/index.js:65:19)
+    at _fulfilled (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:834:54)
+    at self.promiseDispatch.done (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:863:30)
+    at Promise.promise.promiseDispatch (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:796:13)
+    at /Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:604:44
+    at runSingle (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:137:13)
+    at flush (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:125:13)
+    at nextTickCallbackWith0Args (node.js:452:9)
+    at process._tickCallback (node.js:381:13)
+[2016-08-01 16:08:47.795] [WARN] UAMS - { [AuthError: mail anzuev@bk.ru already in use] message: 'mail anzuev@bk.ru already in use', code: 400 }
+AuthError: mail anzuev@bk.ru already in use
+    at Function.User.statics.createUser (/Users/anton/GitHub/StudCloud.WA/node_modules/@anzuev/studcloud.uams/library/general.js:46:9)
+    at next (native)
+    at Function.UAMS.createUser (/Users/anton/GitHub/StudCloud.WA/node_modules/@anzuev/studcloud.uams/index.js:356:15)
+    at next (native)
+    at onFulfilled (/Users/anton/GitHub/StudCloud.WA/node_modules/koa/node_modules/co/index.js:65:19)
+    at _fulfilled (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:834:54)
+    at self.promiseDispatch.done (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:863:30)
+    at Promise.promise.promiseDispatch (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:796:13)
+    at /Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:604:44
+    at runSingle (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:137:13)
+    at flush (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:125:13)
+    at nextTickCallbackWith0Args (node.js:452:9)
+    at process._tickCallback (node.js:381:13)
+[2016-08-01 16:08:55.157] [WARN] UAMS - { [AuthError: mail anzuev@bk.ru already in use] message: 'mail anzuev@bk.ru already in use', code: 400 }
+AuthError: mail anzuev@bk.ru already in use
+    at Function.User.statics.createUser (/Users/anton/GitHub/StudCloud.WA/node_modules/@anzuev/studcloud.uams/library/general.js:46:9)
+    at next (native)
+    at Function.UAMS.createUser (/Users/anton/GitHub/StudCloud.WA/node_modules/@anzuev/studcloud.uams/index.js:356:15)
+    at next (native)
+    at onFulfilled (/Users/anton/GitHub/StudCloud.WA/node_modules/koa/node_modules/co/index.js:65:19)
+    at _fulfilled (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:834:54)
+    at self.promiseDispatch.done (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:863:30)
+    at Promise.promise.promiseDispatch (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:796:13)
+    at /Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:604:44
+    at runSingle (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:137:13)
+    at flush (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:125:13)
+    at nextTickCallbackWith0Args (node.js:452:9)
+    at process._tickCallback (node.js:381:13)
+[2016-08-01 16:08:59.518] [INFO] UAMS - UAMS has been successfully configured and started
+[2016-08-01 16:09:01.064] [WARN] UAMS - { [AuthError: mail anzuev@bk.ru already in use] message: 'mail anzuev@bk.ru already in use', code: 400 }
+AuthError: mail anzuev@bk.ru already in use
+    at Function.User.statics.createUser (/Users/anton/GitHub/StudCloud.WA/node_modules/@anzuev/studcloud.uams/library/general.js:46:9)
+    at next (native)
+    at Function.UAMS.createUser (/Users/anton/GitHub/StudCloud.WA/node_modules/@anzuev/studcloud.uams/index.js:356:15)
+    at next (native)
+    at onFulfilled (/Users/anton/GitHub/StudCloud.WA/node_modules/koa/node_modules/co/index.js:65:19)
+    at _fulfilled (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:834:54)
+    at self.promiseDispatch.done (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:863:30)
+    at Promise.promise.promiseDispatch (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:796:13)
+    at /Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:604:44
+    at runSingle (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:137:13)
+    at flush (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:125:13)
+    at nextTickCallbackWith0Args (node.js:452:9)
+    at process._tickCallback (node.js:381:13)
+[2016-08-01 16:10:37.170] [INFO] UAMS - UAMS has been successfully configured and started
+[2016-08-01 16:10:57.851] [INFO] UAMS - UAMS has been successfully configured and started
+[2016-08-01 16:12:07.123] [INFO] UAMS - UAMS has been successfully configured and started
+[2016-08-01 16:28:26.396] [INFO] UAMS - UAMS has been successfully configured and started
+[2016-08-01 16:28:47.496] [INFO] UAMS - UAMS has been successfully configured and started
+[2016-08-01 16:33:32.454] [INFO] UAMS - UAMS has been successfully configured and started
+[2016-08-01 16:44:53.171] [INFO] UAMS - UAMS has been successfully configured and started
+[2016-08-01 16:45:25.182] [TRACE] UAMS - new user with mail added anzuev123@bfdfk.ru
+[2016-08-01 16:46:43.737] [INFO] UAMS - UAMS has been successfully configured and started
+[2016-08-01 16:46:46.750] [WARN] UAMS - { [AuthError: mail anzuev123@bfdfk.ru already in use] message: 'mail anzuev123@bfdfk.ru already in use', code: 400 }
+AuthError: mail anzuev123@bfdfk.ru already in use
+    at Function.User.statics.createUser (/Users/anton/GitHub/StudCloud.WA/node_modules/@anzuev/studcloud.uams/library/general.js:46:9)
+    at next (native)
+    at Function.UAMS.createUser (/Users/anton/GitHub/StudCloud.WA/node_modules/@anzuev/studcloud.uams/index.js:356:15)
+    at next (native)
+    at onFulfilled (/Users/anton/GitHub/StudCloud.WA/node_modules/co/index.js:65:19)
+    at _fulfilled (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:834:54)
+    at self.promiseDispatch.done (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:863:30)
+    at Promise.promise.promiseDispatch (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:796:13)
+    at /Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:604:44
+    at runSingle (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:137:13)
+    at flush (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:125:13)
+    at nextTickCallbackWith0Args (node.js:452:9)
+    at process._tickCallback (node.js:381:13)
+[2016-08-01 16:46:49.068] [WARN] UAMS - { [AuthError: mail anzuev123@bfdfk.ru already in use] message: 'mail anzuev123@bfdfk.ru already in use', code: 400 }
+AuthError: mail anzuev123@bfdfk.ru already in use
+    at Function.User.statics.createUser (/Users/anton/GitHub/StudCloud.WA/node_modules/@anzuev/studcloud.uams/library/general.js:46:9)
+    at next (native)
+    at Function.UAMS.createUser (/Users/anton/GitHub/StudCloud.WA/node_modules/@anzuev/studcloud.uams/index.js:356:15)
+    at next (native)
+    at onFulfilled (/Users/anton/GitHub/StudCloud.WA/node_modules/co/index.js:65:19)
+    at _fulfilled (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:834:54)
+    at self.promiseDispatch.done (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:863:30)
+    at Promise.promise.promiseDispatch (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:796:13)
+    at /Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:604:44
+    at runSingle (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:137:13)
+    at flush (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:125:13)
+    at nextTickCallbackWith0Args (node.js:452:9)
+    at process._tickCallback (node.js:381:13)
+[2016-08-01 16:47:03.559] [TRACE] UAMS - new user with mail added anzuev123@bfdfk.ruf
+[2016-08-01 16:47:53.822] [INFO] UAMS - UAMS has been successfully configured and started
+[2016-08-01 16:48:02.194] [TRACE] UAMS - new user with mail added anzuev12323@bfdfk.ruf
+[2016-08-01 16:48:03.168] [WARN] UAMS - { [AuthError: mail anzuev12323@bfdfk.ruf already in use]
+  message: 'mail anzuev12323@bfdfk.ruf already in use',
+  code: 400 }
+AuthError: mail anzuev12323@bfdfk.ruf already in use
+    at Function.User.statics.createUser (/Users/anton/GitHub/StudCloud.WA/node_modules/@anzuev/studcloud.uams/library/general.js:46:9)
+    at next (native)
+    at Function.UAMS.createUser (/Users/anton/GitHub/StudCloud.WA/node_modules/@anzuev/studcloud.uams/index.js:356:15)
+    at next (native)
+    at Object.preSignUp (/Users/anton/GitHub/StudCloud.WA/routes/authorize/signUp.js:27:14)
+    at next (native)
+    at Object.dispatch (/Users/anton/GitHub/StudCloud.WA/node_modules/koa-router/lib/router.js:336:7)
+    at next (native)
+    at onFulfilled (/Users/anton/GitHub/StudCloud.WA/node_modules/co/index.js:65:19)
+    at _fulfilled (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:834:54)
+    at self.promiseDispatch.done (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:863:30)
+    at Promise.promise.promiseDispatch (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:796:13)
+    at /Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:604:44
+    at runSingle (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:137:13)
+    at flush (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:125:13)
+    at nextTickCallbackWith0Args (node.js:452:9)
+[2016-08-01 16:48:03.628] [WARN] UAMS - { [AuthError: mail anzuev12323@bfdfk.ruf already in use]
+  message: 'mail anzuev12323@bfdfk.ruf already in use',
+  code: 400 }
+AuthError: mail anzuev12323@bfdfk.ruf already in use
+    at Function.User.statics.createUser (/Users/anton/GitHub/StudCloud.WA/node_modules/@anzuev/studcloud.uams/library/general.js:46:9)
+    at next (native)
+    at Function.UAMS.createUser (/Users/anton/GitHub/StudCloud.WA/node_modules/@anzuev/studcloud.uams/index.js:356:15)
+    at next (native)
+    at Object.preSignUp (/Users/anton/GitHub/StudCloud.WA/routes/authorize/signUp.js:27:14)
+    at next (native)
+    at Object.dispatch (/Users/anton/GitHub/StudCloud.WA/node_modules/koa-router/lib/router.js:336:7)
+    at next (native)
+    at onFulfilled (/Users/anton/GitHub/StudCloud.WA/node_modules/co/index.js:65:19)
+    at _fulfilled (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:834:54)
+    at self.promiseDispatch.done (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:863:30)
+    at Promise.promise.promiseDispatch (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:796:13)
+    at /Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:604:44
+    at runSingle (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:137:13)
+    at flush (/Users/anton/GitHub/StudCloud.WA/node_modules/q/q.js:125:13)
+    at nextTickCallbackWith0Args (node.js:452:9)
+[2016-08-01 16:48:15.455] [INFO] UAMS - UAMS has been successfully configured and started
+[2016-08-01 16:48:29.337] [INFO] UAMS - UAMS has been successfully configured and started
+[2016-08-01 16:48:38.314] [TRACE] UAMS - new user with mail added ansdzuev12323@bfdfk.ruf
+[2016-08-01 16:48:50.373] [INFO] UAMS - UAMS has been successfully configured and started
+[2016-08-01 16:49:08.657] [INFO] UAMS - UAMS has been successfully configured and started
+[2016-08-01 16:49:14.048] [INFO] UAMS - UAMS has been successfully configured and started
+[2016-08-01 16:49:21.495] [TRACE] UAMS - new user with mail added anssffdzuev12323@bfdfk.ruf
+[2016-08-01 16:50:59.203] [INFO] UAMS - UAMS has been successfully configured and started
+[2016-08-01 16:51:57.210] [WARN] UAMS - { [Error: Cannot find module './types/array'] code: 'MODULE_NOT_FOUND' }
+Error: Cannot find module './types/array'
+    at Function.Module._resolveFilename (module.js:325:15)
+    at Function.Module._load (module.js:276:25)
+    at Module.require (module.js:353:17)
+    at require (internal/module.js:12:17)
+    at model.Document.$__set (/Users/anton/GitHub/StudCloud.WA/node_modules/mongoose/lib/document.js:801:39)
+    at model.Document.set (/Users/anton/GitHub/StudCloud.WA/node_modules/mongoose/lib/document.js:713:10)
+    at model.Document.set (/Users/anton/GitHub/StudCloud.WA/node_modules/mongoose/lib/document.js:548:18)
+    at model.Document.set (/Users/anton/GitHub/StudCloud.WA/node_modules/mongoose/lib/document.js:533:16)
+    at model.Document.set (/Users/anton/GitHub/StudCloud.WA/node_modules/mongoose/lib/document.js:533:16)
+    at model.Document (/Users/anton/GitHub/StudCloud.WA/node_modules/mongoose/lib/document.js:67:10)
+    at model.Model (/Users/anton/GitHub/StudCloud.WA/node_modules/mongoose/lib/model.js:41:12)
+    at new model (/Users/anton/GitHub/StudCloud.WA/node_modules/mongoose/lib/model.js:3163:11)
+    at Function.User.statics.createUser (/Users/anton/GitHub/StudCloud.WA/node_modules/@anzuev/studcloud.uams/library/general.js:49:16)
+    at next (native)
+    at Function.UAMS.createUser (/Users/anton/GitHub/StudCloud.WA/node_modules/@anzuev/studcloud.uams/index.js:356:15)
+    at next (native)
+[2016-08-01 16:54:11.971] [INFO] UAMS - UAMS has been successfully configured and started
+[2016-08-01 16:54:30.455] [TRACE] UAMS - New user with mail added anssffdzufdfev12323@bfdfk.ruf
+[2016-08-01 16:54:32.004] [WARN] UAMS - { [AuthError: mail anssffdzufdfev12323@bfdfk.ruf already in use]
+  message: 'mail anssffdzufdfev12323@bfdfk.ruf already in use',
+  code: 400 }
+AuthError: mail anssffdzufdfev12323@bfdfk.ruf already in use
+    at Function.User.statics.createUser (/Users/anton/GitHub/StudCloud.WA/node_modules/@anzuev/studcloud.uams/library/general.js:46:9)
+    at next (native)
+    at Function.UAMS.createUser (/Users/anton/GitHub/StudCloud.WA/node_modules/@anzuev/studcloud.uams/index.js:356:15)
+    at next (native)
+    at Object.preSignUp (/Users/anton/GitHub/StudCloud.WA/routes/authorize/signUp.js:27:14)
+    at next (native)
+    at Object.dispatch (/Users/anton/GitHub/StudCloud.WA/node_modules/koa-router/lib/router.js:336:7)
+    at next (native)
+    at onFulfilled (/Users/anton/GitHub/StudCloud.WA/node_modules/co/index.js:65:19)
+    at _fulfilled (/Users/anton/GitHub/StudCloud.WA/node_modules/@anzuev/studcloud.uams/node_modules/q/q.js:834:54)
+    at self.promiseDispatch.done (/Users/anton/GitHub/StudCloud.WA/node_modules/@anzuev/studcloud.uams/node_modules/q/q.js:863:30)
+    at Promise.promise.promiseDispatch (/Users/anton/GitHub/StudCloud.WA/node_modules/@anzuev/studcloud.uams/node_modules/q/q.js:796:13)
+    at /Users/anton/GitHub/StudCloud.WA/node_modules/@anzuev/studcloud.uams/node_modules/q/q.js:604:44
+    at runSingle (/Users/anton/GitHub/StudCloud.WA/node_modules/@anzuev/studcloud.uams/node_modules/q/q.js:137:13)
+    at flush (/Users/anton/GitHub/StudCloud.WA/node_modules/@anzuev/studcloud.uams/node_modules/q/q.js:125:13)
+    at nextTickCallbackWith0Args (node.js:452:9)
+[2016-08-01 17:04:51.108] [INFO] UAMS - UAMS has been successfully configured and started
+[2016-08-01 17:05:00.778] [INFO] UAMS - UAMS has been successfully configured and started
+[2016-08-01 17:05:08.713] [TRACE] UAMS - New user with mail added anssffdzufdfev12323@bfdfk.rufав
+[2016-08-01 17:06:11.789] [INFO] UAMS - UAMS has been successfully configured and started
+[2016-08-01 17:06:28.328] [TRACE] UAMS - New user with mail added abc@istudentpa.rjf
+[2016-08-01 17:14:30.375] [INFO] UAMS - UAMS has been successfully configured and started
