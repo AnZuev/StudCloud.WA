@@ -1,0 +1,1 @@
+{"Error":{"type":"object","properties":{"exception":{"type":"boolean"},"message":{"type":"string"},"code":{"type":"number"}}}}

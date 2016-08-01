@@ -1,16 +1,23 @@
 'use strict';
 
+
 let path = require('path');
 global.appRoot = path.resolve(__dirname)+ '/';
 const Koa = require('koa');
+const bodyParser = require('koa-bodyparser');
+const koaJsonLogger = require('koa-json-logger');
+
+
+const SSO = require('@anzuev/studcloud.sso');
+const RDS = require("@anzuev/studcloud.rds");
+const log = require(appRoot + '/libs/log');
+const config = require(appRoot + '/config');
+
+
 let app = Koa();
-let SSO = require('@anzuev/studcloud.sso');
-let log = require(appRoot + '/libs/log');
-let config = require(appRoot + '/config');
-let bodyParser = require('koa-bodyparser');
-let koaJsonLogger = require('koa-json-logger');
 
 SSO.configure(config);
+RDS.configure(config);
 
 if(process.env.NODE_ENV == "production"){
 	app.use(koaJsonLogger({
@@ -37,7 +44,6 @@ app.keys = config.get('sso:keys');
 app.use(SSO.getSessionsMiddleware());
 app.use(SSO.getContextMiddleware());
 
-// configure routes
 require("./routes")(app);
 
 module.exports = app;
