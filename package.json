@@ -15,20 +15,14 @@
   "license": "ISC",
   "dependencies": {
     "@anzuev/studcloud.datamodels": "*",
-    "@anzuev/studcloud.errors": "^0.2.0",
-    "@anzuev/studcloud.fileinterface": "^1.1.2",
-    "@anzuev/studcloud.rds": "^1.0.3",
-    "@anzuev/studcloud.sso": "^2.0.9",
-    "@anzuev/studcloud.uams": "^1.0.9",
-    "co": "^4.6.0",
-    "co-body": "^4.2.0",
+    "@anzuev/studcloud.errors": "0.x",
+    "@anzuev/studcloud.fileinterface": "^1.1.x",
+    "@anzuev/studcloud.rds": "^1.0.x",
+    "@anzuev/studcloud.sso": "^2.0.x",
+    "@anzuev/studcloud.uams": "1.0.x",
     "connect-mongo": "^1.2.0",
     "koa": "^1.2.0",
-    "koa-better-body": "^2.0.1",
-    "koa-body": "^1.4.0",
-    "koa-body-parser": "^1.1.2",
     "koa-bodyparser": "^2.2.0",
-    "koa-multer": "^1.0.0",
     "koa-router": "^5.4.0",
     "log4js": "^0.6.37",
     "mongodb": "^2.1.18",
@@ -36,6 +30,17 @@
     "nconf": "^0.8.4",
     "q": "^1.4.1",
     "util": "^0.10.3",
-    "winston": "^2.2.0"
+    "winston": "^2.2.0",
+    "koa-json-logger": "latest"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-convert": "^0.2.0",
+    "gulp-jsdoc-to-markdown": "^1.2.2",
+    "gulp-util": "^3.0.7",
+    "js-yaml": "^3.6.1",
+    "map-stream": "0.0.6",
+    "swagger-jsdoc": "^1.3.1"
   }
 }

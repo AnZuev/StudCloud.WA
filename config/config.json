@@ -2,9 +2,11 @@
   "mongoose":{
     "UsersUri": "mongodb://127.0.0.1/test",
     "PSSUri": "mongodb://127.0.0.1/test",
-    "SSOUri": "mongodb://127.0.0.1/test"
+    "SSOUri": "mongodb://127.0.0.1/test",
+    "RDSUri": "mongodb://127.0.0.1/test_IStudentAPI"
   },
   "sso":{
+    "keys": ["dnfjnj39rjidsnkfjns", "ksdnfjdnsfjdnsjf"],
     "session":{
       "secret": "superSecretKey",
       "key": "StudCloud:session:",
@@ -17,17 +19,21 @@
   },
   "logs":{
     "UAMS":{
-      "path": "/git/StudCloud.WA/libs/logs/UAMS.log",
+      "path": "/Users/anton/GitHub/StudCloud.WA/libs/logs/UAMS.log",
       "label": "UAMS"
     },
     "SSO":{
-      "path": "/git/StudCloud.WA/libs/logs/SSO.log",
+      "path": "/Users/anton/GitHub/StudCloud.WA/libs/logs/SSO.log",
       "label": "SSO"
     },
     "RDS":{
-      "path": "/git/StudCloud.WA/libs/logs/RDS.log",
+      "path": "/Users/anton/GitHub/StudCloud.WA/libs/logs/RDS.log",
       "label": "RDS"
     }
+  },
+  "bin":{
+    "port": 3000,
+    "host": "127.0.0.1"
   }
 
 }

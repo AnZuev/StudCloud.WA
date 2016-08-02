@@ -15,3 +15,10 @@ node_modules/*
 .idea/libraries/node_modules.xml
 .idea/jsLibraryMappings.xml
 libs/logs/UAMS.log
+*.log
+
+*.log
+
+libs/logs/UAMS.log
+
+libs/logs/SSO.log
