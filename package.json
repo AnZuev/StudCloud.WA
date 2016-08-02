@@ -21,8 +21,10 @@
     "@anzuev/studcloud.sso": "^2.0.x",
     "@anzuev/studcloud.uams": "1.0.x",
     "connect-mongo": "^1.2.0",
+    "debug": "^2.2.0",
     "koa": "^1.2.0",
     "koa-bodyparser": "^2.2.0",
+    "koa-json-logger": "latest",
     "koa-router": "^5.4.0",
     "log4js": "^0.6.37",
     "mongodb": "^2.1.18",
@@ -30,8 +32,7 @@
     "nconf": "^0.8.4",
     "q": "^1.4.1",
     "util": "^0.10.3",
-    "winston": "^2.2.0",
-    "koa-json-logger": "latest"
+    "winston": "^2.2.0"
   },
   "devDependencies": {
     "gulp": "^3.9.1",

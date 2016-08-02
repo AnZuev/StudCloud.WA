@@ -19,15 +19,15 @@
   },
   "logs":{
     "UAMS":{
-      "path": "/Users/anton/GitHub/StudCloud.WA/libs/logs/UAMS.log",
+      "path": "/git/StudCloud.WA/libs/logs/UAMS.log",
       "label": "UAMS"
     },
     "SSO":{
-      "path": "/Users/anton/GitHub/StudCloud.WA/libs/logs/SSO.log",
+      "path": "/git/StudCloud.WA/libs/logs/SSO.log",
       "label": "SSO"
     },
     "RDS":{
-      "path": "/Users/anton/GitHub/StudCloud.WA/libs/logs/RDS.log",
+      "path": "/git/StudCloud.WA/libs/logs/RDS.log",
       "label": "RDS"
     }
   },

@@ -41,6 +41,7 @@ authRouter.prefix("/auth");
 authRouter.post('/signIn', /*подключение генератора для обработки*/require("./handlers/signIn"), SSO.signIn);
 
 authRouter.post("/signUp", require("./handlers/signUp"));
+authRouter.post("/confirmMail", require("./handlers/confirmMail"));
 
 authRouter.post('/logout', require('./handlers/logout.js'), SSO.logout);
 

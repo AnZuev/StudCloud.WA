@@ -22,3 +22,11 @@ libs/logs/UAMS.log
 libs/logs/UAMS.log
 
 libs/logs/SSO.log
+*.wt
+mongod.lock
+*.0000000002
+journal/WiredTigerLog.0000000001
+*.0000000001
+WiredTiger.lock
+*.turtle
+WiredTiger
