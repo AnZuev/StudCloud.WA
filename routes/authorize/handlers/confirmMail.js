@@ -24,7 +24,8 @@ module.exports = function*(next){
         //     throw error;
         // }
 
-// yield UAMS.User.confirmMail(data);
+        // yield UAMS.User.confirmMail(data);
+
         yield this.user.confirmMail(data.key);
 
         this.body = this.session;
