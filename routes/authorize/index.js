@@ -40,8 +40,52 @@ authRouter.prefix("/auth");
  */
 authRouter.post('/signIn', /*подключение генератора для обработки*/require("./handlers/signIn"), SSO.signIn);
 
+
+/**
+ * @swagger
+ * /auth/signUp:
+ *   post:
+ *     tags:
+ *       - Auth
+ *     description: User registration
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: mail
+ *         type: string
+ *         required: true
+ *         in: formData
+ *         description: Mail for login
+ *       - name: password
+ *         type: string
+ *         required: true
+ *         in: formData
+ *         description: Password for login
+ *       - name: name
+ *         type: string
+ *         required: true
+ *         in: formData
+ *         description: Name for login
+ *       - name: surname
+ *         type: string
+ *         required: true
+ *         in: formData
+ *         description: Surname for login
+ *     responses:
+ *       200:
+ *         description: data is correct, confirmation was sent
+ *
+ *       400:
+ *         description: Authorization failed, not enough data to signUp
+ */
 authRouter.post("/signUp", require("./handlers/signUp"));
+
+
 authRouter.post("/confirmMail", require("./handlers/confirmMail"));
+
+authRouter.post("/resendActivation", require("./handlers/resendActivation"));
+
+authRouter.post("/forgotPassword", require("./handlers/forgotPassword"));
 
 authRouter.post('/logout', require('./handlers/logout.js'), SSO.logout);
 

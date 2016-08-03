@@ -1,6 +1,8 @@
 'use strict';
 let log = require(appRoot + '/libs/log');
 const UAMS = require('@anzuev/studcloud.uams');
+const Notify = require('@anzuev/notify');
+const mailBoxes = require(appRoot + '/config/mailBoxes');
 const ValidationError = require("@anzuev/studcloud.errors").ValidationError;
 
 
@@ -21,12 +23,22 @@ function* preSignUp(){
 			password: password,
 			mail: mail
 		};
-		let user = yield* UAMS.createUser(authData);
-		this.body = user;
+		let user = yield UAMS.createUser(authData);
+		this.body = {
+			name: authData.name,
+			mail: authData.mail,
+			key: user.authActions.mailSubmit.key
+		};
+
+		Notify.setMailAccounts(mailBoxes);
+		let not = new (Notify.getMailConfirmNotification())("http://istudentapp.ru/link/to/confirm");
+
+		yield not.sendToOne(user.auth.mail);
 	}catch(err){
 		if(err instanceof ValidationError){
 			log.error(err);
-			throw err;
+
+			throw new ValidationError(400, "Not enough data to process");
 		}else{
 			throw err;
 		}

@@ -26,6 +26,10 @@
       "path": "/git/StudCloud.WA/libs/logs/SSO.log",
       "label": "SSO"
     },
+    "Notify":{
+      "path": "/git/StudCloud.WA/libs/logs/notify.log",
+      "label": "Notify"
+    },
     "RDS":{
       "path": "/git/StudCloud.WA/libs/logs/RDS.log",
       "label": "RDS"

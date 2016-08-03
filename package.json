@@ -14,6 +14,7 @@
   "author": "mtdr",
   "license": "ISC",
   "dependencies": {
+    "@anzuev/notify": "0.0.1",
     "@anzuev/studcloud.datamodels": "*",
     "@anzuev/studcloud.errors": "0.x",
     "@anzuev/studcloud.fileinterface": "^1.1.x",
