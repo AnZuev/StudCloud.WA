@@ -86,6 +86,8 @@ authRouter.post("/confirmMail", require("./handlers/confirmMail"));
 authRouter.post("/resendActivation", require("./handlers/resendActivation"));
 
 authRouter.post("/forgotPassword", require("./handlers/forgotPassword"));
+authRouter.post("/setNewPassword", require("./handlers/setNewPassword"));
+authRouter.post("/confirmPasswordToken", require("./handlers/confirmPasswordToken"));
 
 authRouter.post('/logout', require('./handlers/logout.js'), SSO.logout);
 
