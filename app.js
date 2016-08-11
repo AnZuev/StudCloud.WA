@@ -30,6 +30,7 @@ if(process.env.NODE_ENV == "production"){
 }else{
 	app.use(function*(next){
 		try{
+			this.set("Access-Control-Allow-Origin", '*');
 			yield next;
 			console.log("%s %s - %s", this.method, this.url, this.status);
 		}catch(err){

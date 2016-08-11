@@ -34,10 +34,9 @@ authRouter.prefix("/auth");
  *     responses:
  *       200:
  *         description: data is correct, session binded with user
- *
  *       401:
  *         description: Authorization failed, incorrect mail or password
- */
+*/
 authRouter.post('/signIn', /*подключение генератора для обработки*/require("./handlers/signIn"),SSO.signIn);
 
 
@@ -74,9 +73,10 @@ authRouter.post('/signIn', /*подключение генератора для 
  *     responses:
  *       200:
  *         description: data is correct, confirmation was sent
- *
  *       400:
  *         description: Authorization failed, not enough data to signUp
+ *         schema:
+              $ref: '#/definitions/Error'
  */
 authRouter.post("/signUp", require("./handlers/signUp"));
 
@@ -239,7 +239,6 @@ authRouter.post("/confirmPasswordToken", require("./handlers/confirmPasswordToke
  *     responses:
  *       200:
  *         description: all is correct, session unpinned from user
- *
  *       400:
  *         description: Some error
  */

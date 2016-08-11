@@ -1,6 +1,8 @@
 'use strict';
 const Router = require('koa-router');
 const swaggerJSDoc = require('swagger-jsdoc');
+const fs = require('mz/fs');
+const path = require('path');
 
 
 // создаем новый роутер
@@ -22,7 +24,7 @@ var options = {
 };
 
 let swaggerSpec = swaggerJSDoc(options);
-swaggerSpec.definitions.user = 
+swaggerSpec.definitions.Error = require('./jsonDefinitions/Error.json');
 
 /**
  * @swagger
@@ -39,9 +41,17 @@ swaggerSpec.definitions.user =
  *         description: Api.json file
  *       404:
  *         description: file not found
+ *         schema:
+ *           $ref: "#/definitions/Error"
  */
 swaggerRouter.get('/api.json', function*(next){
 	this.body = swaggerSpec;
+	yield next;
+});
+
+swaggerRouter.get('/swagger', function*(next){
+	this.body = yield fs.readFile(path.resolve('views/swagger.html'));
+	this.set('Content-Type', 'text/html');
 	yield next;
 });
 
