@@ -7,7 +7,7 @@ const Koa = require('koa');
 const bodyParser = require('koa-bodyparser');
 const koaJsonLogger = require('koa-json-logger');
 
-const NOTIFY = require('@anzuev/notify');
+const Notify = require('@anzuev/notify');
 const SSO = require('@anzuev/studcloud.sso');
 const RDS = require("@anzuev/studcloud.rds");
 const log = require(appRoot + '/libs/log');
@@ -16,7 +16,7 @@ const config = require(appRoot + '/config');
 
 let app = Koa();
 
-NOTIFY.configure(config);
+Notify.configure(config);
 SSO.configure(config);
 RDS.configure(config);
 

@@ -9,21 +9,22 @@ const ValidationError = require("@anzuev/studcloud.errors").ValidationError;
 
 module.exports = function* () {
     try{
-        let mail = this.request.body.mail;
         let password = this.request.body.password;
-        this.user = yield UAMS._Users.getUserByMail(mail);
-        log.info(this.session);
-        log.info(this.user);
+        log.info(this.session.user);
+        // log.info("ability" + this.session.actions.passwordChange);
+
         let a = yield SSO.isPasswordChangeAllowed(this.session);
         log.trace(a);
-        // Notify.setMailAccounts(mailBoxes);
-        // let not = new (Notify.getMailConfirmNotification())("http://istudentapp.ru/link/to/confirm");
-        // yield not.sendToOne(this.user.auth.mail);
-        this.user.setNewPassword(password);
+        if( a == true) {
+            this.user.setNewPassword(password);
+            yield SSO.dropPasswordChangeAccess.call(this);
+            yield this.user.saveUser();
+            this.status = 200;
 
-        yield SSO.dropPasswordChangeAccess.call(this);
-        yield this.user.saveUser();
-        this.status = 200;
+            //send mail "your password was changed"
+        } else{
+            throw new ValidationError(400);
+        }
     }  catch (e){
         log.error(e);
         throw new ValidationError(400, "Not enough data to process");

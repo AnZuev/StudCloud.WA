@@ -10,16 +10,19 @@ module.exports = function* () {
     try{
         let mail = this.request.body.mail;
         this.user = yield UAMS._Users.getUserByMail(mail);
+        this.session.user = this.user._id;
+        // log.trace(this.session.user);
         let a = this.user.requestPasswordChange();
-        log.info(a);
+        // log.info(a);
         // this.user.authActions.changePassword.key = a;
         // а - это наш ключ, его надо скинуть юзеру, чтобы он пришел с ним менять пароль
-        log.info(this.user);
+        // log.info(this.user);
 
         // send mail
         // Notify.setMailAccounts(mailBoxes);
         // let not = new (Notify.getMailConfirmNotification())("http://istudentapp.ru/link/to/confirm");
         // yield not.sendToOne(this.user.auth.mail);
+
         yield this.user.saveUser();
         this.status = 200;
     }  catch (e){

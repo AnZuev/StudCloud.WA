@@ -14,6 +14,11 @@ module.exports = function* () {
         yield not.sendToOne(this.user.auth.mail);
         this.status = 200;
     }  catch (e){
-        throw new ValidationError(400, "Not enough data to process");
+        log.error(e);
+        if(e.code == 404) {
+            throw e;
+        } else {
+            throw new ValidationError(500);
+        }
     }
 };

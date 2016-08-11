@@ -19,7 +19,7 @@
     "@anzuev/studcloud.errors": "*",
     "@anzuev/studcloud.fileinterface": "~1.1.x",
     "@anzuev/studcloud.rds": "1.0.x",
-    "@anzuev/studcloud.sso": "2.0.x",
+    "@anzuev/studcloud.sso": "~2.0.12",
     "@anzuev/studcloud.uams": "~1.0.11",
     "connect-mongo": "1.2.0",
     "debug": "^2.2.0",
