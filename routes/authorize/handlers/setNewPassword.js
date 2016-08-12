@@ -19,14 +19,17 @@ module.exports = function* () {
             this.user.setNewPassword(password);
             yield SSO.dropPasswordChangeAccess.call(this);
             yield this.user.saveUser();
+            this.body = {result: "ok"};
             this.status = 200;
 
             //send mail "your password was changed"
         } else{
+            this.body = {result: "failed"};
             throw new ValidationError(400);
         }
     }  catch (e){
         log.error(e);
+        this.body = {result: "failed"};
         throw new ValidationError(400, "Not enough data to process");
     }
 };

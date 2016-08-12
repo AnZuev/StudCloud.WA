@@ -25,6 +25,10 @@ var options = {
 
 let swaggerSpec = swaggerJSDoc(options);
 swaggerSpec.definitions.Error = require('./jsonDefinitions/Error.json');
+swaggerSpec.definitions.confirmPasswordToken = require('./jsonDefinitions/confirmPasswordToken.json');
+swaggerSpec.definitions.UserInfo = require('./jsonDefinitions/UserInfo.json');
+swaggerSpec.definitions.confirmMail = require('./jsonDefinitions/confirmMail.json');
+swaggerSpec.definitions.signIn = require('./jsonDefinitions/signIn.json');
 
 /**
  * @swagger

@@ -25,9 +25,12 @@ function* preSignUp(){
 		};
 		let user = yield UAMS.createUser(authData);
 		this.body = {
+			id: user._id,
 			name: authData.name,
-			mail: authData.mail,
-			key: user.authActions.mailSubmit.key
+			surname: authData.surname,
+			mail: authData.mail
+
+			// key: user.authActions.mailSubmit.key
 		};
 
 		Notify.setMailAccounts(mailBoxes);

@@ -18,7 +18,7 @@ module.exports = function* () {
         // а - это наш ключ, его надо скинуть юзеру, чтобы он пришел с ним менять пароль
         // log.info(this.user);
 
-        // send mail
+        // TODO: send mail
         // Notify.setMailAccounts(mailBoxes);
         // let not = new (Notify.getMailConfirmNotification())("http://istudentapp.ru/link/to/confirm");
         // yield not.sendToOne(this.user.auth.mail);

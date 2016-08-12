@@ -12,6 +12,7 @@ module.exports = function* () {
         Notify.setMailAccounts(mailBoxes);
         let not = new (Notify.getMailConfirmNotification())("http://istudentapp.ru/link/to/confirm");
         yield not.sendToOne(this.user.auth.mail);
+        this.body = {result: "ok"};
         this.status = 200;
     }  catch (e){
         log.error(e);

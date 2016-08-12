@@ -1,0 +1,14 @@
+type: object
+properties:
+  id:
+    type: string
+    description: Глобальный идентификатор пользователя в системе
+  name:
+    type: string
+    description: Имя
+  surname:
+    type: string
+    description: Фамилия
+  mail:
+    type: string
+    description: Почта пользователя

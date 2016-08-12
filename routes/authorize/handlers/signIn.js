@@ -23,7 +23,8 @@ function* preLogin(next){
 		};
 		yield next;
 		// yield SSO.signIn.call(this);
-		this.body = this.session;
+		// this.body = this.session
+		this.body = {result: "ok"};
 	}catch(e){
 		log.error(e);
 		throw e;

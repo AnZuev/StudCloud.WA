@@ -30,12 +30,14 @@ authRouter.prefix("/auth");
  *         type: string
  *         required: true
  *         in: formData
- *         description: password for login
+ *         description: Password for login
  *     responses:
  *       200:
- *         description: data is correct, session binded with user
+ *         description: data is correct, session binded with user.
+ *         schema:
+ *           $ref: "#/definitions/signIn"
  *       401:
- *         description: Authorization failed, incorrect mail or password
+ *         description: Authorization failed, incorrect mail or password.
 */
 authRouter.post('/signIn', /*подключение генератора для обработки*/require("./handlers/signIn"),SSO.signIn);
 
@@ -73,6 +75,8 @@ authRouter.post('/signIn', /*подключение генератора для 
  *     responses:
  *       200:
  *         description: data is correct, confirmation was sent
+ *         schema:
+ *           $ref: "#/definitions/UserInfo"
  *       400:
  *         description: Authorization failed, not enough data to signUp
  *         schema:
@@ -101,16 +105,15 @@ authRouter.post("/signUp", require("./handlers/signUp"));
  *         in: formData
  *         description: key, which was sent to user's mail
  *     responses:
- *       "result: ok":
- *         description: all is ok, user is confirmed by mail
- *
- *       "result: failed":
- *         description: user wasn't confirmed by mail
  *       200:
  *         description: data is correct, confirmation was sent
+ *         schema:
+ *           $ref: "#/definitions/confirmMail"
  *
  *       400:
  *         description: Authorization failed, not enough data to signUp
+ *         schema:
+ *           $ref: "#/definitions/confirmMail"
  *
  *       404:
  *         description: There is no user with such mail
@@ -135,7 +138,8 @@ authRouter.post("/confirmMail", require("./handlers/confirmMail"));
  *     responses:
  *       200:
  *         description: data is correct, session binded with user
- *
+ *         schema:
+ *           $ref: "#/definitions/signIn"
  *       404:
  *         description: There is no user with such mail
  *
@@ -150,7 +154,9 @@ authRouter.post("/resendActivation", require("./handlers/resendActivation"));
  *   post:
  *     tags:
  *       - Auth
- *     description: Need to send letter, which contains special link with key for change password
+ *     description: Need to send letter, which contains special link with key for change password.
+ *                  Для смены пароля необходимо сделать три запроса forgotPassword,
+ *                  confirmPasswordToken, setNewPassword.
  *     produces:
  *       - application/json
  *     parameters:
@@ -185,10 +191,14 @@ authRouter.post("/forgotPassword", require("./handlers/forgotPassword"));
  *         description: new password for user's account
  *     responses:
  *       200:
- *         description: All is correct, pass was changed and letter about this was sent
+ *         description: All is correct, pass was changed and letter about this was sent.
+ *         schema:
+ *           $ref: "#/definitions/confirmMail"
  *
  *       400:
- *         description: Some type of error, likely user wasn't allowed to change pass
+ *         description: Some type of error, likely user wasn't allowed to change pass.
+ *         schema:
+ *           $ref: "#/definitions/confirmMail"
  */
 authRouter.post("/setNewPassword", require("./handlers/setNewPassword"));
 
@@ -214,14 +224,15 @@ authRouter.post("/setNewPassword", require("./handlers/setNewPassword"));
  *         in: formData
  *         description: key from letter
  *     responses:
- *
- *       "true, 200":
- *         description: key is correct, user can change password
- *
- *       "false, 400":
- *         description: key is not correct, user can not change password
- *
+ *       200:
+ *         description: key is correct, user can change password(true if all is ok)
+ *         schema:
+ *           $ref: "#/definitions/confirmPasswordToken"
  *       400:
+ *         description: key is not correct, user can not change password(false if it is some trouble)
+ *         schema:
+ *           $ref: "#/definitions/confirmPasswordToken"
+ *       500:
  *         description: Some error
  */
 authRouter.post("/confirmPasswordToken", require("./handlers/confirmPasswordToken"));
@@ -229,11 +240,11 @@ authRouter.post("/confirmPasswordToken", require("./handlers/confirmPasswordToke
 
 /**
  * @swagger
- * /auth/signIn:
+ * /auth/logout:
  *   post:
  *     tags:
  *       - Auth
- *     description: Make user authorized if data is ok
+ *     description: log out
  *     produces:
  *       - application/json
  *     responses:

@@ -15,7 +15,7 @@ docRouter.prefix("/documents");
  * /documents/addDocument:
  *   post:
  *     tags:
- *       - Auth
+ *       - Documents
  *     description: Make user authorized if data is ok
  *     produces:
  *       - application/json
