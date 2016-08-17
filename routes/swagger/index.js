@@ -29,6 +29,7 @@ swaggerSpec.definitions.confirmPasswordToken = require('./jsonDefinitions/confir
 swaggerSpec.definitions.UserInfo = require('./jsonDefinitions/UserInfo.json');
 swaggerSpec.definitions.confirmMail = require('./jsonDefinitions/confirmMail.json');
 swaggerSpec.definitions.signIn = require('./jsonDefinitions/signIn.json');
+swaggerSpec.definitions.SubjectItem = require('./jsonDefinitions/SubjectItem.json');
 
 /**
  * @swagger

@@ -1,0 +1,1 @@
+{"type":"object","properties":{"id":{"type":"string","description":"идентификатор предмета"},"title":{"type":"string","description":"Название предмета"},"created":{"type":"date","description":"Дата создания"}}}
