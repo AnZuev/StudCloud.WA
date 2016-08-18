@@ -12,7 +12,7 @@ module.exports = function*() {
         let res = yield WI.setName(id, newTitle);
         this.status = 200;
         log.info(res);
-    }catch (e){
+    }catch (e){ 
         log.error(e);
         if(e.code == 404) throw new ValidationError(404, "No such workType");
         else if(e.err.kind == 'ObjectId') throw new ValidationError(400, "incorrect id");
