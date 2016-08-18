@@ -31,6 +31,8 @@ swaggerSpec.definitions.confirmMail = require('./jsonDefinitions/confirmMail.jso
 swaggerSpec.definitions.signIn = require('./jsonDefinitions/signIn.json');
 swaggerSpec.definitions.SubjectItem = require('./jsonDefinitions/SubjectItem.json');
 swaggerSpec.definitions.UniversityItem = require('./jsonDefinitions/UniversityItem.json');
+swaggerSpec.definitions.WorkTypeItem = require('./jsonDefinitions/WorkTypeItem.json');
+swaggerSpec.definitions.isWTExist = require('./jsonDefinitions/isWTExist.json');
 
 /**
  * @swagger

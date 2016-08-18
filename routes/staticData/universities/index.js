@@ -14,7 +14,7 @@ univerRouter.prefix("/universities");
  * /universities/addUniversity:
  *   post:
  *     tags:
- *       - Subjects
+ *       - Universities
  *     description: Add enabled university
  *     produces:
  *       - application/json

@@ -1,0 +1,1 @@
+{"type":"object","properties":{"result":{"type":"boolean","description":"true, если существует и false, если нет."}}}

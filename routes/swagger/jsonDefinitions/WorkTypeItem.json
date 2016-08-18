@@ -1,0 +1,1 @@
+{"type":"object","properties":{"id":{"type":"string","description":"идентификатор типа работы"},"title":{"type":"string","description":"Название типа работы"},"created":{"type":"Date","description":"Время создания"}}}

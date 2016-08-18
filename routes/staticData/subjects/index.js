@@ -58,9 +58,15 @@ subRouter.post('/addSubject', require("./handlers/addSubject"));
  *         description: Subject activated
  *
  *       400:
- *         description: some error, watch description
+ *         description: incorrect id
  *         schema:
  *            $ref: '#/definitions/Error'
+ *
+ *       404:
+ *         description: no such subject
+ *         schema:
+ *            $ref: '#/definitions/Error'
+ *
  */
 subRouter.post('/activate', require("./handlers/activate"));
 
@@ -84,7 +90,12 @@ subRouter.post('/activate', require("./handlers/activate"));
  *         description: Subject deactivated
  *
  *       400:
- *         description: some error, watch description
+ *         description: incorrect id
+ *         schema:
+ *            $ref: '#/definitions/Error'
+ *
+ *       404:
+ *         description: no such subject
  *         schema:
  *            $ref: '#/definitions/Error'
  */
@@ -123,7 +134,7 @@ subRouter.post('/changeName', require("./handlers/changeName"));
 
 /**
  * @swagger
- * /subjects/getAll:
+ * /subjects/getAllSubjects:
  *   get:
  *     tags:
  *       - Subjects
@@ -133,12 +144,12 @@ subRouter.post('/changeName', require("./handlers/changeName"));
  *     parameters:
  *       - name: search
  *         type: string
- *         required: true
+ *         required: false
  *         in: formData
  *         description: string for search
  *       - name: skip
  *         type: string
- *         required: true
+ *         required: false
  *         in: formData
  *         description: how much pages it should skip from first element
  *     responses:
@@ -153,7 +164,7 @@ subRouter.post('/changeName', require("./handlers/changeName"));
  *         schema:
  *            $ref: '#/definitions/Error'
  */
-subRouter.get('/getAll', require("./handlers/getAllSubjects"));
+subRouter.get('/getAllSubjects', require("./handlers/getAllSubjects"));
 
 /**
  * @swagger
@@ -167,12 +178,12 @@ subRouter.get('/getAll', require("./handlers/getAllSubjects"));
  *     parameters:
  *       - name: search
  *         type: string
- *         required: true
+ *         required: false
  *         in: formData
  *         description: string for search
  *       - name: skip
  *         type: string
- *         required: true
+ *         required: false
  *         in: formData
  *         description: how much pages it should skip from first element
  *     responses:

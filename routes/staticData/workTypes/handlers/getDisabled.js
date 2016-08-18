@@ -1,21 +1,20 @@
 'use strict';
 const log = require(appRoot + '/libs/log');
 const RDS = require('@anzuev/studcloud.rds');
-const SI = RDS.getSubjectModel();
+const WI = RDS.getWorkTypeModel();
 const ValidationError = require("@anzuev/studcloud.errors").ValidationError;
-const dbError = require("@anzuev/studcloud.errors").DbError;
 
 
 module.exports = function*() {
     try {
-        let search = this.request.query.search || "";
+        let search = this.request.query.search;
         let skip = this.request.query.skip;
         log.trace(search + "  " + skip);
-        let res = yield SI.getAll(search,skip);
+        let res = yield WI.getDisabled(search,skip);
         this.body = res;
         this.status = 200;
         log.info(res);
     } catch (e){
-       throw e;
+        throw e;
     }
 };
