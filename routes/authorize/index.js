@@ -80,7 +80,7 @@ authRouter.post('/signIn', /*подключение генератора для 
  *       400:
  *         description: Authorization failed, not enough data to signUp
  *         schema:
-              $ref: '#/definitions/Error'
+ *            $ref: '#/definitions/Error'
  */
 authRouter.post("/signUp", require("./handlers/signUp"));
 
@@ -117,6 +117,8 @@ authRouter.post("/signUp", require("./handlers/signUp"));
  *
  *       404:
  *         description: There is no user with such mail
+ *         schema:
+ *            $ref: '#/definitions/Error'
  */
 authRouter.post("/confirmMail", require("./handlers/confirmMail"));
 
@@ -142,9 +144,13 @@ authRouter.post("/confirmMail", require("./handlers/confirmMail"));
  *           $ref: "#/definitions/signIn"
  *       404:
  *         description: There is no user with such mail
+ *         schema:
+ *            $ref: '#/definitions/Error'
  *
  *       500:
  *         description: Server error
+ *         schema:
+ *            $ref: '#/definitions/Error'
  */
 authRouter.post("/resendActivation", require("./handlers/resendActivation"));
 
@@ -171,6 +177,8 @@ authRouter.post("/resendActivation", require("./handlers/resendActivation"));
  *
  *       400:
  *         description: Not enough data to process
+ *         schema:
+ *            $ref: '#/definitions/Error'
  */
 authRouter.post("/forgotPassword", require("./handlers/forgotPassword"));
 
@@ -234,6 +242,8 @@ authRouter.post("/setNewPassword", require("./handlers/setNewPassword"));
  *           $ref: "#/definitions/confirmPasswordToken"
  *       500:
  *         description: Some error
+ *         schema:
+ *            $ref: '#/definitions/Error'
  */
 authRouter.post("/confirmPasswordToken", require("./handlers/confirmPasswordToken"));
 
@@ -252,6 +262,8 @@ authRouter.post("/confirmPasswordToken", require("./handlers/confirmPasswordToke
  *         description: all is correct, session unpinned from user
  *       400:
  *         description: Some error
+ *         schema:
+ *            $ref: '#/definitions/Error'
  */
 authRouter.post('/logout', require('./handlers/logout.js'), SSO.logout);
 

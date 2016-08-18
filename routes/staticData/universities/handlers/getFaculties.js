@@ -1,15 +1,15 @@
 'use strict';
 const log = require(appRoot + '/libs/log');
 const RDS = require('@anzuev/studcloud.rds');
-const SI = RDS.getSubjectModel();
+const UI = RDS.getUniversityModel();
 const ValidationError = require("@anzuev/studcloud.errors").ValidationError;
 
 module.exports = function*() {
     try {
-        let search = this.request.body.search;
-        let skip = this.request.body.skip;
-        log.trace(search + "  " + skip);
-        let res = yield SI.getEnabled(search,skip);
+        let title = this.request.query.title || "";
+        let format = this.request.query.format;
+        let university = this.request.query.university;
+        let res = yield UI.getFacultiesByTitle(title,university,format);
         this.body = res;
         this.status = 200;
         log.info(res);

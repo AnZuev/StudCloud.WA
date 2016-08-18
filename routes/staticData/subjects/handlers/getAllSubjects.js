@@ -8,10 +8,10 @@ const dbError = require("@anzuev/studcloud.errors").DbError;
 
 module.exports = function*() {
     try {
-        let str = this.request.query.str;
+        let search = this.request.query.search;
         let skip = this.request.query.skip;
-        log.trace(str + "  " + skip);
-        let res = yield SI.getAll(str,skip);
+        log.trace(search + "  " + skip);
+        let res = yield SI.getAll(search,skip);
         this.body = res;
         this.status = 200;
         log.info(res);

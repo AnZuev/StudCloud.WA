@@ -1,0 +1,1 @@
+{"type":"object","properties":{"id":{"type":"string","description":"идентификатор университета"},"title":{"type":"string","description":"Название университета"}}}

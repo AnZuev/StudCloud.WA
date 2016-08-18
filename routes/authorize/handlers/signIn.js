@@ -12,7 +12,7 @@ function* preLogin(next){
 		if(!mail || !password || mail == undefined){
 			// что-то не передано
 			// кидаем ошибку
-			let error = new ValidationError(400, "Not enough data to proccess signIn");
+			let error = new ValidationError(400, "Not enough data to process signIn");
 			log.error(error);
 			throw error;
 		}

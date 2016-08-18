@@ -32,6 +32,8 @@ subRouter.prefix("/subjects");
  *           $ref: "#/definitions/SubjectItem"
  *       400:
  *         description: creation failed
+ *         schema:
+ *            $ref: '#/definitions/Error'
  */
 subRouter.post('/addSubject', require("./handlers/addSubject"));
 
@@ -57,6 +59,8 @@ subRouter.post('/addSubject', require("./handlers/addSubject"));
  *
  *       400:
  *         description: some error, watch description
+ *         schema:
+ *            $ref: '#/definitions/Error'
  */
 subRouter.post('/activate', require("./handlers/activate"));
 
@@ -81,6 +85,8 @@ subRouter.post('/activate', require("./handlers/activate"));
  *
  *       400:
  *         description: some error, watch description
+ *         schema:
+ *            $ref: '#/definitions/Error'
  */
 subRouter.post('/deactivate', require("./handlers/deactivate"));
 
@@ -110,6 +116,8 @@ subRouter.post('/deactivate', require("./handlers/deactivate"));
  *
  *       400:
  *         description: some error, watch description
+ *         schema:
+ *            $ref: '#/definitions/Error'
  */
 subRouter.post('/changeName', require("./handlers/changeName"));
 
@@ -137,8 +145,13 @@ subRouter.post('/changeName', require("./handlers/changeName"));
  *       200:
  *         description: Subjects were found
  *
+ *       204:
+ *         description: There is no such subjects
+ *
  *       400:
  *         description: some error, watch description
+ *         schema:
+ *            $ref: '#/definitions/Error'
  */
 subRouter.get('/getAll', require("./handlers/getAllSubjects"));
 
@@ -166,8 +179,13 @@ subRouter.get('/getAll', require("./handlers/getAllSubjects"));
  *       200:
  *         description: Subjects were found
  *
+ *       204:
+ *         description: There is no such subjects
+ *
  *       400:
  *         description: some error, watch description
+ *         schema:
+ *            $ref: '#/definitions/Error'
  */
 subRouter.get('/getEnabled', require("./handlers/getEnabled"));
 
