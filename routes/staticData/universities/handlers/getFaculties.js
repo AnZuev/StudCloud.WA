@@ -7,10 +7,6 @@ const ValidationError = require("@anzuev/studcloud.errors").ValidationError;
 module.exports = function*() {
     try {
         let title = this.request.query.title || ""; //regex
-        // title = new RegExp(title, "ig");
-        title = '^' + title;
-        title = new RegExp(title, "i");
-        log.info(title);
         let format = this.request.query.format;
         let university = this.request.query.university;
         let res = yield UI.getFacultiesByTitle(title,university,format);

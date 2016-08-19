@@ -33,6 +33,7 @@ swaggerSpec.definitions.SubjectItem = require('./jsonDefinitions/SubjectItem.jso
 swaggerSpec.definitions.UniversityItem = require('./jsonDefinitions/UniversityItem.json');
 swaggerSpec.definitions.WorkTypeItem = require('./jsonDefinitions/WorkTypeItem.json');
 swaggerSpec.definitions.isWTExist = require('./jsonDefinitions/isWTExist.json');
+swaggerSpec.definitions.getUniversityInfo = require('./jsonDefinitions/getUniversityInfo.json');
 
 /**
  * @swagger

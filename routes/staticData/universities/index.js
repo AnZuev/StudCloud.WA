@@ -51,7 +51,7 @@ univerRouter.prefix("/universities");
  *         required: true
  *     responses:
  *       200:
- *         description: data is correct, subject was created
+ *         description: data is correct, university was created
  *         schema:
  *           $ref: "#/definitions/UniversityItem"
  *       400:
@@ -60,148 +60,105 @@ univerRouter.prefix("/universities");
  *            $ref: '#/definitions/Error'
  */
 univerRouter.post('/addUniversity', require("./handlers/addUniversity"));
+
+/**
+ * @swagger
+ * /universities/addFaculty:
+ *   post:
+ *     tags:
+ *       - Universities
+ *     description: Add faculty to university
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: id
+ *         in: formData
+ *         description: University's id
+ *         type: string
+ *         required: true
+ *       - name: title
+ *         in: formData
+ *         description: Faculty title
+ *         type: string
+ *         required: true
+ *       - name: shortTitle
+ *         in: formData
+ *         description: Short title
+ *         type: string
+ *         required: true
+ *     responses:
+ *       200:
+ *         description: data is correct, faculty was added to university
+ *       400:
+ *         description: creation failed, wrong data
+ *         schema:
+ *            $ref: '#/definitions/Error'
+ */
 univerRouter.post('/addFaculty', require("./handlers/addFaculty"));
+
+/**
+ * @swagger
+ * /universities/getUniversities:
+ *   get:
+ *     tags:
+ *       - Universities
+ *     description: Get universities
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: search
+ *         in: formData
+ *         description: string for search
+ *         type: string
+ *         required: false
+ *       - name: format
+ *         in: formData
+ *         description: if exists - full university's title, else - only short title. Doesn't influence on search string.
+ *         type: string
+ *         required: false
+ *     responses:
+ *       200:
+ *         description: Information array
+ *         schema:
+ *            $ref: '#/definitions/getUniversityInfo'
+ *       204:
+ *         description: No such items
+ *         schema:
+ *            $ref: '#/definitions/Error'
+ */
 univerRouter.get('/getUniversities', require("./handlers/getUniversities"));
+
+/**
+ * @swagger
+ * /universities/getFaculties:
+ *   get:
+ *     tags:
+ *       - Universities
+ *     description: Get faculties
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: search
+ *         in: formData
+ *         description: string for search
+ *         type: string
+ *         required: false
+ *       - name: format
+ *         in: formData
+ *         description: if exists - full faculty's title, else - only short title. Doesn't influence on search string.
+ *         type: string
+ *         required: false
+ *     responses:
+ *       200:
+ *         description: Information array
+ *         schema:
+ *            $ref: '#/definitions/getUniversityInfo'
+ *       204:
+ *         description: No such items
+ *         schema:
+ *            $ref: '#/definitions/Error'
+ */
 univerRouter.get('/getFaculties', require("./handlers/getFaculties"));
-
-//
-// /**
-//  * @swagger
-//  * /subjects/activate:
-//  *   post:
-//  *     tags:
-//  *       - Subjects
-//  *     description: Activate subject
-//  *     produces:
-//  *       - application/json
-//  *     parameters:
-//  *       - name: id
-//  *         type: string
-//  *         required: true
-//  *         in: formData
-//  *         description: Subject's id
-//  *     responses:
-//  *       200:
-//  *         description: Subject activated
-//  *
-//  *       400:
-//  *         description: some error, watch description
-//  */
-// subRouter.post('/activate', require("./handlers/activate"));
-//
-// /**
-//  * @swagger
-//  * /subjects/deactivate:
-//  *   post:
-//  *     tags:
-//  *       - Subjects
-//  *     description: Deactivate subject
-//  *     produces:
-//  *       - application/json
-//  *     parameters:
-//  *       - name: id
-//  *         type: string
-//  *         required: true
-//  *         in: formData
-//  *         description: Subject's id
-//  *     responses:
-//  *       200:
-//  *         description: Subject deactivated
-//  *
-//  *       400:
-//  *         description: some error, watch description
-//  */
-// subRouter.post('/deactivate', require("./handlers/deactivate"));
-//
-// /**
-//  * @swagger
-//  * /subjects/changeName:
-//  *   post:
-//  *     tags:
-//  *       - Subjects
-//  *     description: Deactivate subject
-//  *     produces:
-//  *       - application/json
-//  *     parameters:
-//  *       - name: id
-//  *         type: string
-//  *         required: true
-//  *         in: formData
-//  *         description: Subject's id
-//  *       - name: newTitle
-//  *         type: string
-//  *         required: true
-//  *         in: formData
-//  *         description: new title for subject
-//  *     responses:
-//  *       200:
-//  *         description: Subject deactivated
-//  *
-//  *       400:
-//  *         description: some error, watch description
-//  */
-// univerRouter.post('/changeName', require("./handlers/changeName"));
-//
-// /**
-//  * @swagger
-//  * /subjects/getAll:
-//  *   get:
-//  *     tags:
-//  *       - Subjects
-//  *     description: Get all subjects
-//  *     produces:
-//  *       - application/json
-//  *     parameters:
-//  *       - name: search
-//  *         type: string
-//  *         required: true
-//  *         in: formData
-//  *         description: string for search
-//  *       - name: skip
-//  *         type: string
-//  *         required: true
-//  *         in: formData
-//  *         description: how much pages it should skip from first element
-//  *     responses:
-//  *       200:
-//  *         description: Subjects were found
-//  *
-//  *       400:
-//  *         description: some error, watch description
-//  */
-// univerRouter.get('/getAll', require("./handlers/getAllSubjects"));
-//
-// /**
-//  * @swagger
-//  * /subjects/getEnabled:
-//  *   get:
-//  *     tags:
-//  *       - Subjects
-//  *     description: Get only enabled(activated) subjects
-//  *     produces:
-//  *       - application/json
-//  *     parameters:
-//  *       - name: search
-//  *         type: string
-//  *         required: true
-//  *         in: formData
-//  *         description: string for search
-//  *       - name: skip
-//  *         type: string
-//  *         required: true
-//  *         in: formData
-//  *         description: how much pages it should skip from first element
-//  *     responses:
-//  *       200:
-//  *         description: Subjects were found
-//  *
-//  *       400:
-//  *         description: some error, watch description
-//  */
-// univerRouter.get('/getEnabled', require("./handlers/getEnabled"));
-//
-//
-
 
 //экспорт роутера
 module.exports = univerRouter;
