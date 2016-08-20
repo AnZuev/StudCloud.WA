@@ -10,6 +10,7 @@ const koaJsonLogger = require('koa-json-logger');
 const Notify = require('@anzuev/notify');
 const SSO = require('@anzuev/studcloud.sso');
 const RDS = require("@anzuev/studcloud.rds");
+const BZ = require('@anzuev/knowbase');
 const log = require(appRoot + '/libs/log');
 const config = require(appRoot + '/config');
 
@@ -19,6 +20,7 @@ let app = Koa();
 Notify.configure(config);
 SSO.configure(config);
 RDS.configure(config);
+BZ.configure(config);
 
 if(process.env.NODE_ENV == "production"){
 	app.use(koaJsonLogger({

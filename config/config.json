@@ -3,6 +3,7 @@
     "UsersUri": "mongodb://127.0.0.1/test",
     "PSSUri": "mongodb://127.0.0.1/test",
     "SSOUri": "mongodb://127.0.0.1/test",
+    "BZUri": "mongodb://127.0.0.1/test",
     "RDSUri": "mongodb://127.0.0.1/test"
   },
   "sso":{
@@ -29,6 +30,10 @@
     "Notify":{
       "path": "/git/StudCloud.WA/libs/logs/notify.log",
       "label": "Notify"
+    },
+    "BZ":{
+      "path": "/git/StudCloud.WA/libs/logs/knowbase.log",
+      "label": "BZ"
     },
     "RDS":{
       "path": "/git/StudCloud.WA/libs/logs/RDS.log",
