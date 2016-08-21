@@ -39,4 +39,6 @@ let k = {
     6:generator.next()
 };
 
+console.log('test');
+
 module.exports = k; 
