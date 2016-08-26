@@ -16,30 +16,39 @@ docRouter.prefix("/documents");
  *   post:
  *     tags:
  *       - Documents
- *     description: Make user authorized if data is ok
+ *     description: Нужен для добавления нового документа в базу знаний
  *     produces:
  *       - application/json
  *     parameters:
- *       - name: mail
- *         type: string
+ *       - name: document
  *         required: true
- *         in: formData
- *         description: Mail for login
- *       - name: password
- *         type: string
- *         required: true
- *         in: formData
- *         description: password for login
+ *         in: body
+ *         description: Объект документа
+ *         schema:
+ *           $ref: '#/definitions/documentItemRequest'
  *     responses:
  *       200:
- *         description: data is correct, session binded with user
+ *         description: Все прошло хорошо, документ успешно добавлен
+ *         schema:
+ *           $ref: '#/definitions/documentItemResponse'
  *
  *       401:
- *         description: Authorization failed, incorrect mail or password
+ *         description: Пользователь не авторизован(code = 401)
+ *         schema:
+ *           $ref: '#/definitions/Error'
+ *
+ *       405:
+ *         description: Действие запрещено, но аккаунт еще не активирован(exception:true, code:405)
+ *         schema:
+ *           $ref: '#/definitions/Error'
+ *
+ *       500:
+ *         description: Произошла внутренняя ошибка сервера
+ *         schema:
+ *           $ref: '#/definitions/Error'
  */
 docRouter.post('/addDocument', require("./handlers/addDocument"));
-
-
+docRouter.post('/su', require("./handlers/setUser"));
 
 
 //экспорт роутера

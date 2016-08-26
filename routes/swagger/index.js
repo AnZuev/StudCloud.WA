@@ -34,6 +34,11 @@ swaggerSpec.definitions.UniversityItem = require('./jsonDefinitions/UniversityIt
 swaggerSpec.definitions.WorkTypeItem = require('./jsonDefinitions/WorkTypeItem.json');
 swaggerSpec.definitions.isWTExist = require('./jsonDefinitions/isWTExist.json');
 swaggerSpec.definitions.getUniversityInfo = require('./jsonDefinitions/getUniversityInfo.json');
+swaggerSpec.definitions.commentItem = require('./jsonDefinitions/commentItem.json');
+swaggerSpec.definitions.documentItemRequest = require('./jsonDefinitions/documentItemRequest.json');
+swaggerSpec.definitions.documentItemResponse = require('./jsonDefinitions/documentItemResponse.json');
+swaggerSpec.definitions.documentItemSuggest = require('./jsonDefinitions/documentItemSuggest.json');
+swaggerSpec.definitions.partItem = require('./jsonDefinitions/partItem.json');
 
 /**
  * @swagger

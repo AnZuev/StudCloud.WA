@@ -1,0 +1,20 @@
+type: object
+properties:
+  author:
+    type: object
+    properties:
+      username:
+        type: string
+        description: Имя юзера, который оставил комментарий
+      id:
+        type: string
+        description: id пользователя, который оставил комментарий
+  text:
+    type: string
+    description: Текст сообщения
+  created:
+    type: string
+    description: Дата создания
+  id:
+    type: string
+    description: id комменария
