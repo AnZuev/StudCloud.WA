@@ -33,6 +33,7 @@ if(process.env.NODE_ENV == "production"){
 	app.use(function*(next){
 		try{
 			this.set("Access-Control-Allow-Origin", '*');
+			this.set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
 			yield next;
 			console.log("%s %s - %s", this.method, this.url, this.status);
 		}catch(err){
@@ -41,6 +42,15 @@ if(process.env.NODE_ENV == "production"){
 			this.body = err.get();
 		}
 	});
+
+	app.use(function*(next){
+		if(this.method == "OPTIONS"){
+			this.body = "";
+		}else{
+			yield next;
+		}
+	})
+
 }
 
 
