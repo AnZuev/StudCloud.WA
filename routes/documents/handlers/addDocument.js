@@ -52,7 +52,11 @@ module.exports = function*(){
             this.status = 200;
         }
     } catch (err) {
+        if (err.code){
         log.info(err);
         throw err;
+        }else{
+            throw new ValidationError(400);
+        }
     }
 };

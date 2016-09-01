@@ -37,9 +37,14 @@ if(process.env.NODE_ENV == "production"){
 			yield next;
 			console.log("%s %s - %s", this.method, this.url, this.status);
 		}catch(err){
-			log.error(err.code);
-			this.response.status = err.code;
-			this.body = err.get();
+			if(err.code){
+				log.error(err.code);
+				this.response.status = err.code;
+				this.body = err.get();
+			}else {
+				this.response.status = 400;
+				this.body = "Some error";
+			}
 		}
 	});
 
@@ -58,6 +63,17 @@ app.use(bodyParser());
 app.keys = config.get('sso:keys');
 app.use(SSO.getSessionsMiddleware());
 app.use(SSO.getContextMiddleware());
+
+app.use(function* (next) {
+	if(this.session.user){
+
+		yield next;
+	} else{
+		log.trace("It is no user, so use default");
+		this.session.user = "57a5d9b1c931c158559464e7";
+		yield next;
+	}
+});
 
 require("./routes")(app);
 

@@ -49,6 +49,9 @@ docRouter.prefix("/documents");
  */
 docRouter.post('/addDocument', require("./handlers/addDocument"));
 docRouter.post('/su', require("./handlers/setUser"));
+docRouter.post('/addComment', require("./handlers/addComment"));
+docRouter.get('/getDocumentsBy', require("./handlers/getDocumentsBy"));
+docRouter.get('/getDocumentById', require("./handlers/getDocumentById"));
 
 
 //экспорт роутера
