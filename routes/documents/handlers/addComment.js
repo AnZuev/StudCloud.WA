@@ -16,14 +16,14 @@ module.exports = function*(){
             text: this.request.body.text,
             author: this.session.user
         };
-
+        let id = this.request.body.id;
         if(comment.text < 1) throw new ValidationError(400, "Too short text");
 
-        let id = this.request.body.id;
         this.document = yield BI.getById(id);
         log.trace(this.document);
         yield BI.addComment(id,comment);
         yield this.document.saveDoc();
+        log.trace(this.document);
         this.status = 200;
     }catch (err) {
         log.info(err);

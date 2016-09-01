@@ -16,6 +16,6 @@ module.exports = function*(){
         this.status = 200;
     }catch (err) {
         log.info(err);
-        throw(err);
+        throw err;
     }
 };
