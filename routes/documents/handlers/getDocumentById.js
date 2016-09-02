@@ -6,7 +6,7 @@ const ValidationError = require("@anzuev/studcloud.errors").ValidationError;
 
 module.exports = function*(){
     try {
-        let id = this.request.body.id;
+        let id = this.request.query.id;
         let res = yield BI.getById(id);
         log.info(res);
         this.body = res;

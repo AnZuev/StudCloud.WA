@@ -50,8 +50,14 @@ docRouter.prefix("/documents");
 docRouter.post('/addDocument', require("./handlers/addDocument"));
 docRouter.post('/su', require("./handlers/setUser"));
 docRouter.post('/addComment', require("./handlers/addComment"));
+docRouter.post('/addLike', require("./handlers/addLike"));
+docRouter.post('/addDislike', require("./handlers/addDislike"));
+docRouter.post('/addWatch', require("./handlers/addWatch"));
+docRouter.post('/addPart', require("./handlers/addPart"));
+docRouter.post('/removePart', require("./handlers/removePart"));
 docRouter.get('/getDocumentsBy', require("./handlers/getDocumentsBy"));
 docRouter.get('/getDocumentById', require("./handlers/getDocumentById"));
+docRouter.get('/getComments', require("./handlers/getComments"));
 
 
 //экспорт роутера

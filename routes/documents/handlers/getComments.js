@@ -7,11 +7,10 @@ const ValidationError = require("@anzuev/studcloud.errors").ValidationError;
 
 module.exports = function*(){
     try {
-        let title = this.request.query.title;
-        let page = this.request.query.page;
-        let context = this.request.query;
+        let id = this.request.query.id;
+        let date = this.request.query.date;
         log.info(this.request.query);
-        let res = yield BI.getDocumentsBy(title,context,page);
+        let res = yield BI.getComments(id, date);
         log.info(res);
         if (res.length == 0) throw new ValidationError(204);
         this.body = res;
