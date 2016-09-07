@@ -10,7 +10,6 @@ const DM = require('@anzuev/studcloud.datamodels').Document;
 
 module.exports = function*(){
     try {
-        this.user = yield UAMS._Users.getUserById(this.session.user); // можно убрать, если не нужен ник
         let documentId = this.request.body.id;
         this.document = yield BI.getById(documentId);
         let part = {

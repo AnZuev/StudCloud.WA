@@ -13,7 +13,7 @@ module.exports = function*(){
         log.info(this.request.query);
         let res = yield BI.getDocumentsBy(title,context,page);
         log.info(res);
-        if (res.length == 0) throw new ValidationError(204);
+        if (res.length == 0) throw 204;
         this.body = res;
         this.status = 200;
     }catch (err) {

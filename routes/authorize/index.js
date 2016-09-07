@@ -268,5 +268,37 @@ authRouter.post("/confirmPasswordToken", require("./handlers/confirmPasswordToke
 authRouter.post('/logout', require('./handlers/logout.js'), SSO.logout);
 
 
+/**
+ * @swagger
+ * /auth/changeFaculty:
+ *   post:
+ *     tags:
+ *       - Auth
+ *     description: Change or set faculty
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: faculty
+ *         type: string
+ *         required: true
+ *         in: formData
+ *         description: User's faculty
+ *     responses:
+ *       200:
+ *         description: all correct, faculty was set
+ *       400:
+ *         description: key is not correct, user can not change password(false if it is some trouble)
+ *         schema:
+ *           $ref: "#/definitions/confirmPasswordToken"
+ *       500:
+ *         description: Some error
+ *         schema:
+ *            $ref: '#/definitions/Error'
+ */
+authRouter.post('/changeFaculty', require('./handlers/changeFaculty.js'));
+authRouter.post('/changeUniversity', require('./handlers/changeUniversity.js'));
+authRouter.post('/changeYear', require('./handlers/changeYear.js'));
+
+
 //экспорт роутера
 module.exports = authRouter;
