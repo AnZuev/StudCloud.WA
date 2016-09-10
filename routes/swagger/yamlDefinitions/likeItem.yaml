@@ -1,0 +1,5 @@
+type: object
+properties:
+    done:
+        type: boolean
+        description: true, если все ОК.

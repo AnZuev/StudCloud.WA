@@ -1,20 +1,22 @@
 type: object
 properties:
-  author:
-    type: object
+    author: object
     properties:
-      username:
+      name:
         type: string
-        description: Имя юзера, который оставил комментарий
+        description: Имя пользователя
+      surname:
+        type: string
+        description: Фамилия пользователя
       id:
         type: string
-        description: id пользователя, который оставил комментарий
-  text:
-    type: string
-    description: Текст сообщения
-  created:
-    type: string
-    description: Дата создания
-  id:
-    type: string
-    description: id комменария
+        description: Id пользователя
+    text:
+      type: string
+      description: Сам комментарий
+    id:
+      type: string
+      description: Id комментария
+    created:
+      type: Date
+      description: Дата создания комментария

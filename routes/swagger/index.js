@@ -39,6 +39,8 @@ swaggerSpec.definitions.documentItemRequest = require('./jsonDefinitions/documen
 swaggerSpec.definitions.documentItemResponse = require('./jsonDefinitions/documentItemResponse.json');
 swaggerSpec.definitions.documentItemSuggest = require('./jsonDefinitions/documentItemSuggest.json');
 swaggerSpec.definitions.partItem = require('./jsonDefinitions/partItem.json');
+swaggerSpec.definitions.commentItem = require('./jsonDefinitions/commentItem.json');
+swaggerSpec.definitions.likeItem = require('./jsonDefinitions/likeItem.json');
 
 /**
  * @swagger

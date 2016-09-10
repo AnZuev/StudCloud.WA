@@ -2,15 +2,11 @@
 const log = require(appRoot + '/libs/log');
 const BZ = require('@anzuev/knowbase');
 const UAMS = require('@anzuev/studcloud.uams');
-
 const BI = BZ.getModel();
 const ValidationError = require("@anzuev/studcloud.errors").ValidationError;
-const DM = require('@anzuev/studcloud.datamodels').Document;
-
 
 module.exports = function*(){
     try {
-        log.trace(this.session.user);
         this.user = yield UAMS._Users.getUserById(this.session.user); // можно убрать, если не нужен ник
         let comment = {
             text: this.request.body.text,
@@ -18,12 +14,19 @@ module.exports = function*(){
         };
         let id = this.request.body.id;
         if(comment.text < 1) throw new ValidationError(400, "Too short text");
-
-        this.document = yield BI.getById(id);
-        log.trace(this.document);
         yield BI.addComment(id,comment);
+        this.document = yield BI.getById(id);
         yield this.document.saveDoc();
-        log.trace(this.document);
+        this.body = {
+            author:{
+                name: this.user.pubInform.name,
+                surname: this.user.pubInform.surname,
+                id: this.user._id
+            },
+            text: comment.text,
+            id: this.document.social.comments[this.document.social.comments.length - 1]._id,
+            created: this.document.social.comments[this.document.social.comments.length - 1].created
+        };
         this.status = 200;
     }catch (err) {
         log.info(err);

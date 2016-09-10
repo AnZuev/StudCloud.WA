@@ -286,17 +286,73 @@ authRouter.post('/logout', require('./handlers/logout.js'), SSO.logout);
  *     responses:
  *       200:
  *         description: all correct, faculty was set
- *       400:
- *         description: key is not correct, user can not change password(false if it is some trouble)
  *         schema:
- *           $ref: "#/definitions/confirmPasswordToken"
+ *           $ref: "#/definitions/confirmMail"
+ *       400:
+ *         description: some trouble with input data
  *       500:
  *         description: Some error
  *         schema:
  *            $ref: '#/definitions/Error'
  */
 authRouter.post('/changeFaculty', require('./handlers/changeFaculty.js'));
+
+/**
+ * @swagger
+ * /auth/changeUniversity:
+ *   post:
+ *     tags:
+ *       - Auth
+ *     description: Change or set university
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: university
+ *         type: string
+ *         required: true
+ *         in: formData
+ *         description: User's university
+ *     responses:
+ *       200:
+ *         description: all correct, university was set
+ *         schema:
+ *           $ref: "#/definitions/confirmMail"
+ *       400:
+ *         description: some trouble with input data
+ *       500:
+ *         description: Some error
+ *         schema:
+ *            $ref: '#/definitions/Error'
+ */
 authRouter.post('/changeUniversity', require('./handlers/changeUniversity.js'));
+
+/**
+ * @swagger
+ * /auth/changeYear:
+ *   post:
+ *     tags:
+ *       - Auth
+ *     description: Change or set year
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: year
+ *         type: string
+ *         required: true
+ *         in: formData
+ *         description: User's year
+ *     responses:
+ *       200:
+ *         description: all correct, year was set
+ *         schema:
+ *           $ref: "#/definitions/confirmMail"
+ *       400:
+ *         description: some trouble with input data
+ *       500:
+ *         description: Some error
+ *         schema:
+ *            $ref: '#/definitions/Error'
+ */
 authRouter.post('/changeYear', require('./handlers/changeYear.js'));
 
 
