@@ -120,7 +120,8 @@ authRouter.post("/signUp", require("./handlers/signUp"));
  *         schema:
  *            $ref: '#/definitions/Error'
  */
-authRouter.post("/confirmMail", require("./handlers/confirmMail"));
+authRouter.post("/confirmMail", require("./handlers/confirmMail")); // TODO: почему пост запрос? идея в том, что пользователь
+// TODO: кликает на ссылку на почте, запрос должен быть get. Параметры соответственно передаются в query, а не formData
 
 /**
  * @swagger
@@ -153,6 +154,7 @@ authRouter.post("/confirmMail", require("./handlers/confirmMail"));
  *            $ref: '#/definitions/Error'
  */
 authRouter.post("/resendActivation", require("./handlers/resendActivation"));
+//TODO: этот сценарий выполняется, когда юзер уже авторизован. Нет необходимости проверять почту и тд. Надо взять из сессии
 
 /**
  * @swagger
@@ -209,6 +211,8 @@ authRouter.post("/forgotPassword", require("./handlers/forgotPassword"));
  *           $ref: "#/definitions/confirmMail"
  */
 authRouter.post("/setNewPassword", require("./handlers/setNewPassword"));
+//TODO: давай назовем definition/confirmMail другим именем. Семантически не очень правильно получается:
+// TODO: в definitions/confirmMail не содержится каких-то специфичных для запроса confirmMail данных. Скорее это просто ответ
 
 
 /**
@@ -246,7 +250,7 @@ authRouter.post("/setNewPassword", require("./handlers/setNewPassword"));
  *            $ref: '#/definitions/Error'
  */
 authRouter.post("/confirmPasswordToken", require("./handlers/confirmPasswordToken"));
-
+//TODO: лучше использовать что-то вроде  result: true/false. То есть по сути объект ответа, который будет в confirmMail
 
 /**
  * @swagger
@@ -266,7 +270,7 @@ authRouter.post("/confirmPasswordToken", require("./handlers/confirmPasswordToke
  *            $ref: '#/definitions/Error'
  */
 authRouter.post('/logout', require('./handlers/logout.js'), SSO.logout);
-
+//TODO: в каком случае может быть ошибка 400?
 
 /**
  * @swagger
@@ -296,6 +300,7 @@ authRouter.post('/logout', require('./handlers/logout.js'), SSO.logout);
  *            $ref: '#/definitions/Error'
  */
 authRouter.post('/changeFaculty', require('./handlers/changeFaculty.js'));
+//TODO: нет проверки на наличие сессии
 
 /**
  * @swagger
@@ -325,6 +330,8 @@ authRouter.post('/changeFaculty', require('./handlers/changeFaculty.js'));
  *            $ref: '#/definitions/Error'
  */
 authRouter.post('/changeUniversity', require('./handlers/changeUniversity.js'));
+//TODO: нет проверки на наличие сессии
+
 
 /**
  * @swagger
@@ -354,6 +361,7 @@ authRouter.post('/changeUniversity', require('./handlers/changeUniversity.js'));
  *            $ref: '#/definitions/Error'
  */
 authRouter.post('/changeYear', require('./handlers/changeYear.js'));
+//TODO: нет проверки на наличие сессии
 
 //экспорт роутера
 module.exports = authRouter;

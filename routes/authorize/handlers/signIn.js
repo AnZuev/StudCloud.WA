@@ -9,7 +9,7 @@ function* preLogin(next){
 	try{
 		let mail = this.request.body.mail;
 		let password = this.request.body.password;
-		if(!mail || !password || mail == undefined){
+		if(!mail || !password || mail == undefined){ // TODO: странное выражение, можно упростить
 			// что-то не передано
 			// кидаем ошибку
 			let error = new ValidationError(400, "Not enough data to process signIn");
@@ -22,8 +22,9 @@ function* preLogin(next){
 			password: password
 		};
 		yield next;
-		// yield SSO.signIn.call(this);
-		// this.body = this.session
+
+
+		// TODO: сюда нужно юзера тоже отдавать, посмотри как было до этого на старом сваггере
 		this.body = {result: "ok"};
 	}catch(e){
 		log.error(e);
