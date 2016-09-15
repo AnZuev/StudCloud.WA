@@ -13,7 +13,10 @@ module.exports = function* () {
         log.info(this.session.user);
         // log.info("ability" + this.session.actions.passwordChange);
 
-        let a = yield SSO.isPasswordChangeAllowed(this.session);
+
+	    //TODO: Неверная ошибка при попытке смены пароля в то время, как пользователь на запрашивал смену. Надо 403
+
+        let a = yield* SSO.isPasswordChangeAllowed(this.session);
         log.trace(a);
         if( a == true) {
             this.user.setNewPassword(password);
@@ -25,6 +28,7 @@ module.exports = function* () {
             //send mail "your password was changed"
         } else{
             this.body = {result: "failed"};
+	        //TODO: почему ошибка ValidationError? Откуда она?
             throw new ValidationError(400);
         }
     }  catch (e){

@@ -23,6 +23,8 @@ function* preSignUp(){
 			password: password,
 			mail: mail
 		};
+
+
 		let user = yield UAMS.createUser(authData);
 		this.body = {
 			id: user._id,
@@ -33,14 +35,19 @@ function* preSignUp(){
 			// key: user.authActions.mailSubmit.key
 		};
 
+		//TODO: лучше настраивать один раз в app.js
 		Notify.setMailAccounts(mailBoxes);
-		let not = new (Notify.getMailConfirmNotification())("http://istudentapp.ru/link/to/confirm");
 
+		//TODO: ссылку нормальную сюда надо передавать
+
+		//TODO: письмо не отправляется
+		let not = new (Notify.getMailConfirmNotification())("http://istudentapp.ru/link/to/confirm");
 		yield not.sendToOne(user.auth.mail);
 	}catch(err){
+		// TODO: может быть ошибка типа AuthError
 		if(err instanceof ValidationError){
+			throw err;
 			log.error(err);
-
 			throw new ValidationError(400, "Not enough data to process");
 		}else{
 			throw err;

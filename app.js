@@ -11,6 +11,8 @@ const Notify = require('@anzuev/notify');
 const SSO = require('@anzuev/studcloud.sso');
 const RDS = require("@anzuev/studcloud.rds");
 const BZ = require('@anzuev/knowbase');
+const UAMS = require("@anzuev/studcloud.uams");
+
 const log = require(appRoot + '/libs/log');
 const config = require(appRoot + '/config');
 
@@ -21,6 +23,9 @@ Notify.configure(config);
 SSO.configure(config);
 RDS.configure(config);
 BZ.configure(config);
+
+// донастроил UAMS
+UAMS.configure(config);
 
 if(process.env.NODE_ENV == "production"){
 	app.use(koaJsonLogger({
@@ -37,6 +42,7 @@ if(process.env.NODE_ENV == "production"){
 			yield next;
 			console.log("%s %s - %s", this.method, this.url, this.status);
 		}catch(err){
+			console.log(err);
 			if(err.code){
 				log.error(err.code);
 				this.response.status = err.code;
@@ -54,6 +60,7 @@ if(process.env.NODE_ENV == "production"){
 		}else{
 			yield next;
 		}
+
 	})
 
 }
@@ -64,16 +71,18 @@ app.keys = config.get('sso:keys');
 app.use(SSO.getSessionsMiddleware());
 app.use(SSO.getContextMiddleware());
 
+/*
 app.use(function* (next) {
 	if(this.session.user){
 
 		yield next;
 	} else{
 		log.trace("It is no user, so use default");
-		this.session.user = "57a5d9b1c931c158559464e7";
+		this.session.user = "577aa958445338a73b232aff";//"57a5d9b1c931c158559464e7";
 		yield next;
 	}
 });
+*/
 
 require("./routes")(app);
 

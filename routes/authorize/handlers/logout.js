@@ -7,6 +7,8 @@ module.exports = function*(next){
 		yield next;
 		this.status = 200;
 	}catch (e){
+		//TODO: почему опять ValidationError?
+		// TODO: есть предположение, что отсутствует require ошибки. Может упасть
 		let error = new ValidationError(500, "System error");
 		log.error(error);
 		throw error;

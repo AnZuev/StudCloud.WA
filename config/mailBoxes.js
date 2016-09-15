@@ -1,4 +1,6 @@
 'use strict';
+
+
 module.exports = {
     mailConfirm: {
         mail: 'auth@istudentapp.ru',
