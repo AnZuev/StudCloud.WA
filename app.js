@@ -7,6 +7,7 @@ const Koa = require('koa');
 const bodyParser = require('koa-bodyparser');
 const koaJsonLogger = require('koa-json-logger');
 
+const UAMS = require('@anzuev/studcloud.uams');
 const Notify = require('@anzuev/notify');
 const SSO = require('@anzuev/studcloud.sso');
 const RDS = require("@anzuev/studcloud.rds");
@@ -17,6 +18,7 @@ const config = require(appRoot + '/config');
 
 let app = Koa();
 
+UAMS.configure(config);
 Notify.configure(config);
 SSO.configure(config);
 RDS.configure(config);
@@ -64,9 +66,9 @@ app.keys = config.get('sso:keys');
 app.use(SSO.getSessionsMiddleware());
 app.use(SSO.getContextMiddleware());
 
+// TODO Delete
 app.use(function* (next) {
 	if(this.session.user){
-
 		yield next;
 	} else{
 		log.trace("It is no user, so use default");

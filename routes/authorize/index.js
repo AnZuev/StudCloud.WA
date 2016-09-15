@@ -355,6 +355,5 @@ authRouter.post('/changeUniversity', require('./handlers/changeUniversity.js'));
  */
 authRouter.post('/changeYear', require('./handlers/changeYear.js'));
 
-
 //экспорт роутера
 module.exports = authRouter;

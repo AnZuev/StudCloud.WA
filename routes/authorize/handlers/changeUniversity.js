@@ -4,7 +4,7 @@ const UAMS = require('@anzuev/studcloud.uams');
 
 module.exports = function*(){
     try {
-        this.user = yield UAMS._Users.getUserById(this.session.user);
+        this.user = yield UAMS.getUserById(this.session.user);
         let university = this.request.body.university;
         this.user.changeUniversity(university);
         yield this.user.saveUser();
@@ -12,6 +12,6 @@ module.exports = function*(){
         this.status = 200;
     }catch (err) {
         log.info(err);
-        throw(err);
+        throw err;
     }
 };

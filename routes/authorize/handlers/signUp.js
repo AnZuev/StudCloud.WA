@@ -40,7 +40,6 @@ function* preSignUp(){
 	}catch(err){
 		if(err instanceof ValidationError){
 			log.error(err);
-
 			throw new ValidationError(400, "Not enough data to process");
 		}else{
 			throw err;
