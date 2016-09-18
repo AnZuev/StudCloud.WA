@@ -6,8 +6,8 @@ const ValidationError = require("@anzuev/studcloud.errors").ValidationError;
 module.exports = function*(){
     try{
         let data = {
-            mail: this.request.body.mail,
-            key: this.request.body.key
+            mail: this.request.query.mail,
+            key: this.request.query.key
         };
 
         if(data.mail==undefined || !data.key){ //TODO: можно упростить до !(data.mail&&data.key)

@@ -1,6 +1,6 @@
 'use strict';
 let log = require(appRoot + '/libs/log');
-
+const ValidationError = require("@anzuev/studcloud.errors").ValidationError;
 
 module.exports = function*(next){
 	try {

@@ -87,7 +87,7 @@ authRouter.post("/signUp", require("./handlers/signUp"));
 /**
  * @swagger
  * /auth/confirmMail:
- *   post:
+ *   get:
  *     tags:
  *       - Auth
  *     description: Mail confirmation
@@ -108,20 +108,19 @@ authRouter.post("/signUp", require("./handlers/signUp"));
  *       200:
  *         description: data is correct, confirmation was sent
  *         schema:
- *           $ref: "#/definitions/confirmMail"
+ *           $ref: "#/definitions/shortRes"
  *
  *       400:
  *         description: Authorization failed, not enough data to signUp
  *         schema:
- *           $ref: "#/definitions/confirmMail"
+ *           $ref: "#/definitions/shortRes"
  *
  *       404:
  *         description: There is no user with such mail
  *         schema:
  *            $ref: '#/definitions/Error'
  */
-authRouter.post("/confirmMail", require("./handlers/confirmMail")); // TODO: почему пост запрос? идея в том, что пользователь
-// TODO: кликает на ссылку на почте, запрос должен быть get. Параметры соответственно передаются в query, а не formData
+authRouter.get("/confirmMail", require("./handlers/confirmMail"));
 
 /**
  * @swagger
@@ -132,12 +131,6 @@ authRouter.post("/confirmMail", require("./handlers/confirmMail")); // TODO: п�
  *     description: Resend activation key to user's mail
  *     produces:
  *       - application/json
- *     parameters:
- *       - name: mail
- *         type: string
- *         required: true
- *         in: formData
- *         description: User's mail
  *     responses:
  *       200:
  *         description: data is correct, session binded with user
@@ -154,7 +147,6 @@ authRouter.post("/confirmMail", require("./handlers/confirmMail")); // TODO: п�
  *            $ref: '#/definitions/Error'
  */
 authRouter.post("/resendActivation", require("./handlers/resendActivation"));
-//TODO: этот сценарий выполняется, когда юзер уже авторизован. Нет необходимости проверять почту и тд. Надо взять из сессии
 
 /**
  * @swagger
@@ -203,16 +195,15 @@ authRouter.post("/forgotPassword", require("./handlers/forgotPassword"));
  *       200:
  *         description: All is correct, pass was changed and letter about this was sent.
  *         schema:
- *           $ref: "#/definitions/confirmMail"
+ *           $ref: "#/definitions/shortRes"
  *
  *       400:
  *         description: Some type of error, likely user wasn't allowed to change pass.
  *         schema:
- *           $ref: "#/definitions/confirmMail"
+ *           $ref: "#/definitions/shortRes"
  */
 authRouter.post("/setNewPassword", require("./handlers/setNewPassword"));
-//TODO: давай назовем definition/confirmMail другим именем. Семантически не очень правильно получается:
-// TODO: в definitions/confirmMail не содержится каких-то специфичных для запроса confirmMail данных. Скорее это просто ответ
+//TODO: definition/confirmMail = /shortRes
 
 
 /**
@@ -239,7 +230,7 @@ authRouter.post("/setNewPassword", require("./handlers/setNewPassword"));
  *       200:
  *         description: key is correct, user can change password(true if all is ok)
  *         schema:
- *           $ref: "#/definitions/confirmPasswordToken"
+ *           $ref: "#/definitions/shortRes"
  *       400:
  *         description: key is not correct, user can not change password(false if it is some trouble)
  *         schema:
@@ -250,7 +241,6 @@ authRouter.post("/setNewPassword", require("./handlers/setNewPassword"));
  *            $ref: '#/definitions/Error'
  */
 authRouter.post("/confirmPasswordToken", require("./handlers/confirmPasswordToken"));
-//TODO: лучше использовать что-то вроде  result: true/false. То есть по сути объект ответа, который будет в confirmMail
 
 /**
  * @swagger
@@ -264,13 +254,12 @@ authRouter.post("/confirmPasswordToken", require("./handlers/confirmPasswordToke
  *     responses:
  *       200:
  *         description: all is correct, session unpinned from user
- *       400:
- *         description: Some error
+ *       500:
+ *         description: Server error
  *         schema:
  *            $ref: '#/definitions/Error'
  */
 authRouter.post('/logout', require('./handlers/logout.js'), SSO.logout);
-//TODO: в каком случае может быть ошибка 400?
 
 /**
  * @swagger
@@ -291,7 +280,7 @@ authRouter.post('/logout', require('./handlers/logout.js'), SSO.logout);
  *       200:
  *         description: all correct, faculty was set
  *         schema:
- *           $ref: "#/definitions/confirmMail"
+ *           $ref: "#/definitions/shortRes"
  *       400:
  *         description: some trouble with input data
  *       500:
@@ -321,7 +310,7 @@ authRouter.post('/changeFaculty', require('./handlers/changeFaculty.js'));
  *       200:
  *         description: all correct, university was set
  *         schema:
- *           $ref: "#/definitions/confirmMail"
+ *           $ref: "#/definitions/shortRes"
  *       400:
  *         description: some trouble with input data
  *       500:
@@ -352,7 +341,7 @@ authRouter.post('/changeUniversity', require('./handlers/changeUniversity.js'));
  *       200:
  *         description: all correct, year was set
  *         schema:
- *           $ref: "#/definitions/confirmMail"
+ *           $ref: "#/definitions/shortRes"
  *       400:
  *         description: some trouble with input data
  *       500:

@@ -7,8 +7,8 @@ const Koa = require('koa');
 const bodyParser = require('koa-bodyparser');
 const koaJsonLogger = require('koa-json-logger');
 
-const UAMS = require('@anzuev/studcloud.uams');
 const Notify = require('@anzuev/notify');
+const mailBoxes = require(appRoot + '/config/mailBoxes');
 const SSO = require('@anzuev/studcloud.sso');
 const RDS = require("@anzuev/studcloud.rds");
 const BZ = require('@anzuev/knowbase');
@@ -20,14 +20,13 @@ const config = require(appRoot + '/config');
 
 let app = Koa();
 
-UAMS.configure(config);
+
 Notify.configure(config);
 SSO.configure(config);
 RDS.configure(config);
 BZ.configure(config);
-
-// донастроил UAMS
 UAMS.configure(config);
+Notify.setMailAccounts(mailBoxes);
 
 if(process.env.NODE_ENV == "production"){
 	app.use(koaJsonLogger({
@@ -73,9 +72,8 @@ app.keys = config.get('sso:keys');
 app.use(SSO.getSessionsMiddleware());
 app.use(SSO.getContextMiddleware());
 
-<<<<<<< HEAD
+
 // TODO Delete
-=======
 /*
 >>>>>>> origin/master
 app.use(function* (next) {
