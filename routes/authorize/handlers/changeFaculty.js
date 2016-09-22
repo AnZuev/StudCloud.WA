@@ -4,13 +4,10 @@ const UAMS = require('@anzuev/studcloud.uams');
 const SSO = require('@anzuev/studcloud.sso');
 const AuthError = require("@anzuev/studcloud.errors").AuthError;
 
-module.exports = function*(){
+module.exports = function*(next){
     try {
-        if(yield SSO.checkAuthMiddleware.call(this)){
-            throw new AuthError(401);
-        }
-        log.trace(1);
         let faculty = this.request.body.faculty;
+        yield next;
         this.user.changeFaculty(faculty);
         yield this.user.saveUser();
         this.body = {result: "ok"};

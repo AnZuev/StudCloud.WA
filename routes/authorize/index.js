@@ -288,8 +288,7 @@ authRouter.post('/logout', require('./handlers/logout.js'), SSO.logout);
  *         schema:
  *            $ref: '#/definitions/Error'
  */
-authRouter.post('/changeFaculty', require('./handlers/changeFaculty.js'));
-//TODO: нет проверки на наличие сессии
+authRouter.post('/changeFaculty', require('./handlers/changeFaculty.js'), SSO.checkAuthMiddleware);
 
 /**
  * @swagger
@@ -318,9 +317,7 @@ authRouter.post('/changeFaculty', require('./handlers/changeFaculty.js'));
  *         schema:
  *            $ref: '#/definitions/Error'
  */
-authRouter.post('/changeUniversity', require('./handlers/changeUniversity.js'));
-//TODO: нет проверки на наличие сессии
-
+authRouter.post('/changeUniversity', require('./handlers/changeUniversity.js'), SSO.checkAuthMiddleware);
 
 /**
  * @swagger
@@ -343,14 +340,13 @@ authRouter.post('/changeUniversity', require('./handlers/changeUniversity.js'));
  *         schema:
  *           $ref: "#/definitions/shortRes"
  *       400:
- *         description: some trouble with input data
+ *         description: some trouble with input year
  *       500:
  *         description: Some error
  *         schema:
  *            $ref: '#/definitions/Error'
  */
-authRouter.post('/changeYear', require('./handlers/changeYear.js'));
-//TODO: нет проверки на наличие сессии
+authRouter.post('/changeYear', require('./handlers/changeYear.js'), SSO.checkAuthMiddleware);
 
 //экспорт роутера
 module.exports = authRouter;
