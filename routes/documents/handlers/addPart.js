@@ -4,7 +4,8 @@ const BZ = require('@anzuev/knowbase');
 const BI = BZ.getModel();
 
 module.exports = function*(){
-    try {
+	// TODO: Зачем try catch?
+	try {
         let documentId = this.request.body.id;
         this.document = yield BI.getById(documentId);
         let part = {

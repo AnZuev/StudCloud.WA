@@ -8,8 +8,10 @@ const ValidationError = require("@anzuev/studcloud.errors").ValidationError;
 const DM = require('@anzuev/studcloud.datamodels').Document;
 
 
+//TODO: нужен ли тут этот запрос вообще?
+// TODO: Все таки мы делаем инкрементирование счетчика просмотра только на стороне сервера при получении запроса на просмотр документа
 module.exports = function*(){
-    try {
+	try {
         let documentId = this.request.body.id;
         let res = yield BI.addWatch(documentId);
         this.body = { done: res };

@@ -5,6 +5,10 @@ const SSO = require('@anzuev/studcloud.sso');
 const ValidationError = require("@anzuev/studcloud.errors").ValidationError;
 
 module.exports = function*(next){
+	/*
+	 * TODO: зачем тут try catch?
+	 * Если надо залогировать ошибку, то это можно один раз сделать в app.js
+	 */
     try {
         let year = this.request.body.year;
         if (year > 0 && year < 7) {

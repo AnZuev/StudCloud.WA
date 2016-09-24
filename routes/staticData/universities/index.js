@@ -9,6 +9,10 @@ univerRouter.prefix("/universities");
 
 // обычная обработка запроса
 
+
+/*
+ *  TODO: здесь нам нужны только запросы получения университетов или факультетов, все остальное я скопировал в админку
+ */
 /**
  * @swagger
  * /universities/addUniversity:
@@ -96,6 +100,10 @@ univerRouter.post('/addUniversity', require("./handlers/addUniversity"));
  */
 univerRouter.post('/addFaculty', require("./handlers/addFaculty"));
 
+
+/*
+ * TODO: в случае 200 не совсем понятно что такое information info. Плюс это массив, а у тебя указано, что это объект
+ */
 /**
  * @swagger
  * /universities/getUniversities:
@@ -128,6 +136,10 @@ univerRouter.post('/addFaculty', require("./handlers/addFaculty"));
  */
 univerRouter.get('/getUniversities', require("./handlers/getUniversities"));
 
+
+/*
+ * TODO: аналогично getUniversities
+ */
 /**
  * @swagger
  * /universities/getFaculties:

@@ -12,7 +12,7 @@ const ValidationError = require("@anzuev/studcloud.errors").ValidationError;
 module.exports = function*(){
     try {
         log.info(this.request.body);
-        this.user = yield UAMS._Users.getUserById(this.session.user);
+        this.user = yield UAMS._Users.getUserById(this.session.user); // TODO: user уже в this.user
         log.info(this.user);
         let document = new BI;
 
@@ -20,7 +20,8 @@ module.exports = function*(){
         log.info(document);
         if (document.title.length < 1) throw new ValidationError(400, "Too short title");
         else {
-            let condition1 = this.request.body.search.university && this.request.body.search.faculty && this.request.body.search.year;
+            let condition1 = this.request.body.search.university && this.request.body.search.faculty && this.request.body.search.year; // TODO: что это за проверка?
+	        // TODO: и это? Пиши иногда комментарии, если не очевидные вещи происходят в коде:)
             let condition2 = this.user.pubInform.university && this.user.pubInform.faculty && this.user.pubInform.year;
             log.trace(condition1 + " + " + condition2);
             if (condition1) {

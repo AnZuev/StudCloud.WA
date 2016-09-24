@@ -6,10 +6,13 @@ const UAMS = require('@anzuev/studcloud.uams');
 const BI = BZ.getModel();
 const ValidationError = require("@anzuev/studcloud.errors").ValidationError;
 const DM = require('@anzuev/studcloud.datamodels').Document;
+// TODO: Зачем тут DM, ValidationError и UAMS
 
 
 module.exports = function*(){
-    try {
+	// TODO: Зачем try catch?
+
+	try {
         let documentId = this.request.body.id;
         let res = yield BI.addLike(documentId, this.session.user);
         this.body = { done: res };

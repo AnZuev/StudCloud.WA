@@ -8,7 +8,9 @@ let subRouter = new Router();
 // добавляем префикс
 subRouter.prefix("/subjects");
 
-// обычная обработка запроса
+/*
+ * TODO: я забрал в админу запросы для предметов, здесь нужно оставить только метод getEnabled, все остальное надо удалить
+ */
 
 /**
  * @swagger
@@ -166,6 +168,12 @@ subRouter.post('/changeName', require("./handlers/changeName"));
  */
 subRouter.get('/getAllSubjects', require("./handlers/getAllSubjects"));
 
+
+
+/*
+ * TODO: каким образом ребята с фронтенда должны узнать что такое предмет(имею ввиду ответ с кодом 200)?
+ *
+ */
 /**
  * @swagger
  * /subjects/getEnabled:

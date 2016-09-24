@@ -5,6 +5,9 @@ const SI = RDS.getSubjectModel();
 const ValidationError = require("@anzuev/studcloud.errors").ValidationError;
 
 module.exports = function*() {
+	/**
+	 * TODO: Зачем тут try catch? внутри catch ничего не делаем, зачем это тут?
+	 */
     try {
         let search = this.request.body.search;
         let skip = this.request.body.skip;

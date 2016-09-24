@@ -173,6 +173,7 @@ docRouter.post('/addDislike', require("./handlers/addDislike"));
  *           $ref: '#/definitions/Error'
  */
 docRouter.post('/addWatch', require("./handlers/addWatch"));
+//TODO:вообще этот запрос не нужен даже, просмотр добавляется при просмотре документа(получение документа)
 
 /**
  * @swagger

@@ -12,6 +12,7 @@ module.exports = function*() {
         let skip = this.request.query.skip;
         log.trace(search + "  " + skip);
         let res = yield SI.getAll(search,skip);
+	    // TODO: когда отдаем предметы, не передает туда дату добавления, модицикаци и версию
         this.body = res;
         this.status = 200;
         log.info(res);

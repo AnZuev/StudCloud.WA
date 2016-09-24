@@ -7,7 +7,9 @@ let wtRouter = new Router();
 // добавляем префикс
 wtRouter.prefix("/workTypes");
 
-// обычная обработка запроса
+/*
+ * TODO: здесь нужен только метод getEnabled и getById, все остальное я скопировал в админку
+ */
 
 /**
  * @swagger

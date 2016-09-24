@@ -5,6 +5,10 @@ const UI = RDS.getUniversityModel();
 const ValidationError = require("@anzuev/studcloud.errors").ValidationError;
 
 module.exports = function*() {
+
+	/*
+	 * TODO: зачем тут try catch?
+	 */
     try {
         let title = this.request.query.title || "";
         let format = this.request.query.format;

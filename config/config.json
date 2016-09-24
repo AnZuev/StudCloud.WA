@@ -1,10 +1,10 @@
 {
   "mongoose":{
-    "UsersUri": "mongodb://127.0.0.1/test",
+    "UsersUri": "mongodb://127.0.0.1/test_IStudentAPI",
     "PSSUri": "mongodb://127.0.0.1/test",
-    "SSOUri": "mongodb://127.0.0.1/test",
-    "BZUri": "mongodb://127.0.0.1/test",
-    "RDSUri": "mongodb://127.0.0.1/test"
+    "SSOUri": "mongodb://127.0.0.1/test_IStudentAPI",
+    "BZUri": "mongodb://127.0.0.1/test_IStudentAPI",
+    "RDSUri": "mongodb://127.0.0.1/test_IStudentAPI"
   },
   "sso":{
     "keys": ["dnfjnj39rjidsnkfjns", "ksdnfjdnsfjdnsjf"],
@@ -20,23 +20,23 @@
   },
   "logs":{
     "UAMS":{
-      "path": "/git/StudCloud.WA/libs/logs/UAMS.log",
+      "path": "/Users/anton/GitHub/StudCloud.space/StudCloud.WA/libs/logs/Studcloud.WA.log",
       "label": "UAMS"
     },
     "SSO":{
-      "path": "/git/StudCloud.WA/libs/logs/SSO.log",
+      "path": "/Users/anton/GitHub/StudCloud.space/StudCloud.WA/libs/logs/Studcloud.WA.log",
       "label": "SSO"
     },
     "Notify":{
-      "path": "/git/StudCloud.WA/libs/logs/notify.log",
+      "path": "/Users/anton/GitHub/StudCloud.space/StudCloud.WA/libs/logs/Studcloud.WA.log",
       "label": "Notify"
     },
     "BZ":{
-      "path": "/git/StudCloud.WA/libs/logs/knowbase.log",
+      "path": "/Users/anton/GitHub/StudCloud.space/StudCloud.WA/libs/logs/Studcloud.WA.log",
       "label": "BZ"
     },
     "RDS":{
-      "path": "/git/StudCloud.WA/libs/logs/RDS.log",
+      "path": "/Users/anton/GitHub/StudCloud.space/StudCloud.WA/libs/logs/Studcloud.WA.log",
       "label": "RDS"
     }
   },

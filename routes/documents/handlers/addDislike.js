@@ -7,8 +7,16 @@ const BI = BZ.getModel();
 const ValidationError = require("@anzuev/studcloud.errors").ValidationError;
 const DM = require('@anzuev/studcloud.datamodels').Document;
 
+/*
+ * TODO: зачем тут ValidationError, DM и UAMS
+ */
+
 
 module.exports = function*(){
+
+	/*
+	 * TODO: зачем тут try catch?
+	 */
     try {
         let documentId = this.request.body.id;
         let res = yield BI.addDislike(documentId, this.session.user);

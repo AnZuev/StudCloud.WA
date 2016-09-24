@@ -5,9 +5,11 @@ const UAMS = require('@anzuev/studcloud.uams');
 const BI = BZ.getModel();
 
 module.exports = function*(){
-    try {
+	// TODO: Зачем try catch?
+	try {
         let documentId = this.request.body.documentId;
         let partId = this.request.body.partId;
+		//TODO: зачем в this.document записывать документ?
         this.document = yield BI.getById(documentId);
         this.document.removePart(partId);
         yield this.document.saveDoc();

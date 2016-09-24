@@ -4,9 +4,12 @@ const BZ = require('@anzuev/knowbase');
 const UAMS = require('@anzuev/studcloud.uams');
 const BI = BZ.getModel();
 const ValidationError = require("@anzuev/studcloud.errors").ValidationError;
+// TODO: Зачем ValidationError и UAMS
 
 module.exports = function*(){
-    try {
+	// TODO: Зачем try catch?
+
+	try {
         let title = this.request.query.title;
         let page = this.request.query.page;
         let context = this.request.query;
