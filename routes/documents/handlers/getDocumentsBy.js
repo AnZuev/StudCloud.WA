@@ -13,14 +13,12 @@ module.exports = function*(){
         let title = this.request.query.title;
         let page = this.request.query.page;
         let context = this.request.query;
-        log.info(this.request.query);
         let res = yield BI.getDocumentsBy(title,context,page);
-        log.info(res);
         if (res.length == 0) throw 204;
         this.body = res;
         this.status = 200;
     }catch (err) {
-        log.info(err);
+        log.err(err);
         throw err;
     }
 };

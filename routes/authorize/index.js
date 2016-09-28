@@ -283,6 +283,8 @@ authRouter.post('/logout', require('./handlers/logout.js'), SSO.logout);
  *           $ref: "#/definitions/shortRes"
  *       400:
  *         description: some trouble with input data
+ *       401:
+ *         description: auth failed
  *       500:
  *         description: Some error
  *         schema:
@@ -312,6 +314,8 @@ authRouter.post('/changeFaculty', require('./handlers/changeFaculty.js'), SSO.ch
  *           $ref: "#/definitions/shortRes"
  *       400:
  *         description: some trouble with input data
+ *       401:
+ *         description: auth failed
  *       500:
  *         description: Some error
  *         schema:
@@ -341,6 +345,8 @@ authRouter.post('/changeUniversity', require('./handlers/changeUniversity.js'), 
  *           $ref: "#/definitions/shortRes"
  *       400:
  *         description: some trouble with input year
+ *       401:
+ *         description: auth failed
  *       500:
  *         description: Some error
  *         schema:

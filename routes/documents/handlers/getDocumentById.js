@@ -9,13 +9,15 @@ module.exports = function*(){
 	// TODO: Зачем try catch?
 	try {
         let id = this.request.query.id;
-		// TODO: что будет, если кривой id?
         let res = yield BI.getById(id);
-        log.info(res);
+        if(!res || res.length == 0)
+            throw new ValidationError(204,"No such document");
         this.body = res;
         this.status = 200;
     }catch (err) {
-        log.info(err);
+        if (err.code == 500)
+            throw new ValidationError(400, "Bad id");
+        log.err(err);
         throw err;
     }
 };

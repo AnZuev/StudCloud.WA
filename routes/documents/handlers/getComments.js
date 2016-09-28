@@ -7,14 +7,13 @@ module.exports = function*(){
 	// TODO: Зачем try catch?
     try {
         let id = this.request.query.id;
-	    // TODO: зачем забирать дату от юзера, если ее можно сделать на сервере new Date() ?
-        let date = this.request.query.date;
+        let date = new Date();
         let res = yield BI.getComments(id, date);
-        if (res.length == 0) throw 204; // TODO: зачем делать throw 204? можно просто this.body = res и если res это пустой массив то мы получил код 204
         this.body = res;
+        if(res.length == 0) throw new ValidationError(204,"No comments");
         this.status = 200;
     }catch (err) {
-        log.info(err);
+        log.err(err);
         throw err;
     }
 };
