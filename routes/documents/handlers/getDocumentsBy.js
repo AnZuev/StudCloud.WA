@@ -3,7 +3,6 @@ const log = require(appRoot + '/libs/log');
 const BZ = require('@anzuev/knowbase');
 const BI = BZ.getModel();
 const ValidationError = require("@anzuev/studcloud.errors").ValidationError;
-// TODO: Зачем ValidationError и UAMS
 
 module.exports = function*(){
     let title,page,context;

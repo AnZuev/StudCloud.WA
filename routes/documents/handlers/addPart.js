@@ -5,16 +5,17 @@ const BI = BZ.getModel();
 const Mongoose = require('mongoose');
 
 module.exports = function*(){
-    let documentId;
+    let documentId, part;
     try {
         documentId = Mongoose.Types.ObjectId(this.request.body.id);
+        part = {
+            url: this.request.body.url
+        };
     }catch(e){
         throw new ValidationError(400, "Bad data");
     }
+    
     this.document = yield BI.getById(documentId);
-    let part = {
-        url: this.request.body.url
-    };
     this.document.addPart(part);
     yield this.document.saveDoc();
     let res = yield BI.getById(documentId);
