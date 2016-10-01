@@ -10,7 +10,7 @@ module.exports = function*(){
             key: this.request.query.key
         };
 
-        if(data.mail==undefined || !data.key){ //TODO: можно упростить до !(data.mail&&data.key)
+        if(!(data.mail&&data.key)){
             let error = new ValidationError(400, "Not enough data to process");
             log.error(error);
             this.body = {result: "failed"};
@@ -18,7 +18,7 @@ module.exports = function*(){
         }
         this.user = yield UAMS._Users.getUserByMail(data.mail); // вызов метода должен быть через UAMS.getUserByMail;
         let a = this.user.confirmMail(data.key);
-        if ( a == true){ //TODO: можно упростить до if(a)
+        if ( a ){ //TODO: можно упростить до if(a)
 	        yield this.user.saveUser();
             this.body = {result: "ok"};
             this.status = 200;

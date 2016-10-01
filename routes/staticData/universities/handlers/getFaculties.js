@@ -5,18 +5,16 @@ const UI = RDS.getUniversityModel();
 const ValidationError = require("@anzuev/studcloud.errors").ValidationError;
 
 module.exports = function*() {
-	/*
-	 * TODO: зачем тут try catch?
-	 */
+    let title, format, university;
     try {
-        let title = this.request.query.title || ""; //regex
-        let format = this.request.query.format;
-        let university = this.request.query.university;
-        let res = yield UI.getFacultiesByTitle(title,university,format);
-        this.body = res;
-        this.status = 200;
-        log.info(res);
-    } catch (e){
-        throw e;
+        title = this.request.query.title || ""; //regex
+        format = this.request.query.format;
+        university = this.request.query.university;
+    }catch (err) {
+        throw new ValidationError(400, "Bad data");
     }
+    let res = yield UI.getFacultiesByTitle(title,university,format);
+    this.body = res;
+    this.status = 200;
+
 };

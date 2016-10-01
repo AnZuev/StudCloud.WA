@@ -6,12 +6,16 @@ const BI = BZ.getModel();
 const ValidationError = require("@anzuev/studcloud.errors").ValidationError;
 
 module.exports = function*(){
+    let comment;
     try {
-        this.user = yield UAMS._Users.getUserById(this.session.user); // можно убрать, если не нужен ник
-        let comment = {
+        comment = {
             text: this.request.body.text,
             author: this.session.user
         };
+    }catch (e) {
+        throw new ValidationError(400, "Not enough data");
+    }
+    try{
         let id = this.request.body.id;
         if(comment.text < 1) throw new ValidationError(400, "Too short text");
         yield BI.addComment(id,comment);

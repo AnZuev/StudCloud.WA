@@ -5,18 +5,15 @@ const SI = RDS.getSubjectModel();
 const ValidationError = require("@anzuev/studcloud.errors").ValidationError;
 
 module.exports = function*() {
-	/**
-	 * TODO: Зачем тут try catch? внутри catch ничего не делаем, зачем это тут?
-	 */
+    let search,skip;
     try {
-        let search = this.request.body.search;
-        let skip = this.request.body.skip;
-        log.trace(search + "  " + skip);
-        let res = yield SI.getEnabled(search,skip);
-        this.body = res;
-        this.status = 200;
-        log.info(res);
-    } catch (e){
-        throw e;
+        search = this.request.query.search;
+        skip = this.request.query.skip;
+    }catch(e) {
+        throw new ValidationError(400, "Not enough data");
     }
+    let res = yield SI.getEnabled(search,skip);
+    this.body = res;
+    this.status = 200;
+    log.info(res);
 };

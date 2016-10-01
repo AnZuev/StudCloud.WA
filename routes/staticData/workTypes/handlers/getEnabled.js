@@ -3,24 +3,17 @@ const log = require(appRoot + '/libs/log');
 const RDS = require('@anzuev/studcloud.rds');
 const WI = RDS.getWorkTypeModel();
 const ValidationError = require("@anzuev/studcloud.errors").ValidationError;
-/*
- * TODO: зачем тут ValidationError?
- */
+
 
 module.exports = function*() {
-
-	/*
-	 * TODO: зачем тут try catch?
-	 */
+    let search, skip;
     try {
-        let search = this.request.query.search;
-        let skip = this.request.query.skip;
-        log.trace(search + "  " + skip);
-        let res = yield WI.getEnabled(search,skip);
-        this.body = res;
-        this.status = 200;
-        log.info(res);
-    } catch (e){
-        throw e;
+        search = this.request.query.search;
+        skip = this.request.query.skip;
+    }catch(e) {
+        throw new ValidationError(400, "Bad data");
     }
+    let res = yield WI.getEnabled(search,skip);
+    this.body = res;
+    this.status = 200;
 };

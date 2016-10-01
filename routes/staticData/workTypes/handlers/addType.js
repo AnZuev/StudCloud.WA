@@ -11,8 +11,7 @@ module.exports = function*() {
         w.title = this.request.body.title;
         if (w.title < 1) throw new ValidationError(400, "Title is too short");
         else {
-            let a = yield w.saveType();
-            log.info(a);
+            yield w.saveType();
             this.body = {
                 id: w._id,
                 title: w.title,

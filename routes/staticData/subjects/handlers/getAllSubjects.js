@@ -7,16 +7,16 @@ const dbError = require("@anzuev/studcloud.errors").DbError;
 
 
 module.exports = function*() {
+    let search,skip;
     try {
-        let search = this.request.query.search || "";
-        let skip = this.request.query.skip;
-        log.trace(search + "  " + skip);
+        search = this.request.query.search || "";
+        skip = this.request.query.skip;
+    } catch(e) {
+        throw new ValidationError(400, "Not enough data");
+    }
         let res = yield SI.getAll(search,skip);
 	    // TODO: когда отдаем предметы, не передает туда дату добавления, модицикаци и версию
-        this.body = res;
+        this.body = res; // сделать выборку
         this.status = 200;
         log.info(res);
-    } catch (e){
-       throw e;
-    }
 };

@@ -43,6 +43,10 @@ subRouter.prefix("/subjects");
  *            $ref: '#/definitions/Error'
  */
 subRouter.get('/getEnabled', require("./handlers/getEnabled"));
+subRouter.get('/getAll', require("./handlers/getAllSubjects"));
+subRouter.post('/activate', require("./handlers/activate"));
+subRouter.post('/deactivate', require("./handlers/deactivate"));
+subRouter.post('/changeName', require("./handlers/changeName"));
 
 
 

@@ -6,15 +6,14 @@ const ValidationError = require("@anzuev/studcloud.errors").ValidationError;
 
 
 module.exports = function*() {
+    let search, skip;
     try {
-        let search = this.request.query.search;
-        let skip = this.request.query.skip;
-        log.trace(search + "  " + skip);
-        let res = yield WI.getAll(search,skip);
-        this.body = res;
-        this.status = 200;
-        log.info(res);
-    } catch (e){
-        throw e;
+        search = this.request.query.search;
+        skip = this.request.query.skip;
+    }catch(e) {
+        throw new ValidationError(400, "Bad data");
     }
+    let res = yield WI.getAll(search,skip);
+    this.body = res;
+    this.status = 200;
 };

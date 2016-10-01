@@ -1,29 +1,19 @@
 'use strict';
 const log = require(appRoot + '/libs/log');
 const BZ = require('@anzuev/knowbase');
-const UAMS = require('@anzuev/studcloud.uams');
-
 const BI = BZ.getModel();
+const Mongoose = require('mongoose');
 const ValidationError = require("@anzuev/studcloud.errors").ValidationError;
-const DM = require('@anzuev/studcloud.datamodels').Document;
-
-/*
- * TODO: зачем тут ValidationError, DM и UAMS
- */
-
 
 module.exports = function*(){
-
-	/*
-	 * TODO: зачем тут try catch?
-	 */
-    try {
-        let documentId = this.request.body.id;
-        let res = yield BI.addDislike(documentId, this.session.user);
-        this.body = { done: res };
-        this.status = 200;
-    }catch (err) {
-        log.info(err);
-        throw err;
+    let documentId;
+    try{
+        documentId = Mongoose.Types.ObjectId(this.request.body.id);
+    }catch (e){
+        throw new ValidationError(400, "Bad document's id");
     }
+    let res = yield BI.addDislike(documentId, this.session.user);
+    this.body = { done: res };
+    this.status = 200;
+
 };

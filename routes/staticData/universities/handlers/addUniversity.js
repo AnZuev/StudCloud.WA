@@ -15,6 +15,10 @@ module.exports = function*() {
             building: this.request.body.building,
             rating: this.request.body.rating
         };
+    }catch (err) {
+        throw new ValidationError(400, "Bad data");
+    }
+    try{
         let condition = s.title && s.shortTitle && s.city && s.street && s.building && s.rating;
         if(condition == undefined) throw new ValidationError(400, "Fill each parameter");
         else {
@@ -25,7 +29,7 @@ module.exports = function*() {
     }catch (e){
         if(e.code == 11000 || e.code == 11001) throw new ValidationError(400, "Such university also exist");
         else{
-            log.info(e);
+            log.error(e);
             throw e;
         }
     }

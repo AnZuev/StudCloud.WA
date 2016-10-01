@@ -8,12 +8,9 @@ const ValidationError = require("@anzuev/studcloud.errors").ValidationError;
 
 module.exports = function* () {
     try{
+        log.info(this.user);
         let mail = this.request.body.mail;
-        this.user = yield UAMS._Users.getUserByMail(mail); //TODO: вызов UAMS.getUserByMail
-        this.session.user = this.user._id; // TODO: почему привязывается сессия? Если я плохой пользователь,
-	    //TODO: тогда я смогу отправить запрос на то, что забыл пароль от твоего аккаунта и система привяжет мою
-	    //TODO: сессию к твоему аккаунту. Это не есть хорошо
-
+        this.user = yield UAMS.getUserByMail(mail);
 
         // log.trace(this.session.user);
         let a = this.user.requestPasswordChange();

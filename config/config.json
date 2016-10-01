@@ -1,10 +1,10 @@
 {
   "mongoose":{
-    "UsersUri": "mongodb://127.0.0.1/test_IStudentAPI",
+    "UsersUri": "mongodb://127.0.0.1/test",
     "PSSUri": "mongodb://127.0.0.1/test",
-    "SSOUri": "mongodb://127.0.0.1/test_IStudentAPI",
-    "BZUri": "mongodb://127.0.0.1/test_IStudentAPI",
-    "RDSUri": "mongodb://127.0.0.1/test_IStudentAPI"
+    "SSOUri": "mongodb://127.0.0.1/test",
+    "BZUri": "mongodb://127.0.0.1/test",
+    "RDSUri": "mongodb://127.0.0.1/test"
   },
   "sso":{
     "keys": ["dnfjnj39rjidsnkfjns", "ksdnfjdnsfjdnsjf"],

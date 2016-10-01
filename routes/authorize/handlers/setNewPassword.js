@@ -6,18 +6,14 @@ const UAMS = require('@anzuev/studcloud.uams');
 const Notify = require('@anzuev/notify');
 const mailBoxes = require(appRoot + '/config/mailBoxes');
 const ValidationError = require("@anzuev/studcloud.errors").ValidationError;
+const AuthError = require("@anzuev/studcloud.errors").AuthError;
 
 module.exports = function* () {
     try{
         let password = this.request.body.password;
-        log.info(this.session.user);
         // log.info("ability" + this.session.actions.passwordChange);
 
-
-	    //TODO: Неверная ошибка при попытке смены пароля в то время, как пользователь на запрашивал смену. Надо 403
-
         let a = yield* SSO.isPasswordChangeAllowed(this.session);
-        log.trace(a);
         if( a == true) {
             this.user.setNewPassword(password);
             yield SSO.dropPasswordChangeAccess.call(this);
@@ -25,11 +21,10 @@ module.exports = function* () {
             this.body = {result: "ok"};
             this.status = 200;
 
-            //send mail "your password was changed"
+            //TODO: send mail "your password was changed"
         } else{
             this.body = {result: "failed"};
-	        //TODO: почему ошибка ValidationError? Откуда она?
-            throw new ValidationError(400);
+            throw new AuthError(403, "This user couldn't change password")
         }
     }  catch (e){
         log.error(e);

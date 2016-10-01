@@ -148,35 +148,6 @@ docRouter.post('/addDislike', require("./handlers/addDislike"));
 
 /**
  * @swagger
- * /documents/addWatch:
- *   post:
- *     tags:
- *       - Documents
- *     description: Add watch to document
- *     produces:
- *       - application/json
- *     parameters:
- *       - name: id
- *         required: true
- *         in: body
- *         description: Document id
- *         type: string
- *     responses:
- *       200:
- *         description: Все прошло хорошо, просмотр успешно добавлен
- *         schema:
- *           $ref: "#/definitions/likeItem"
- *
- *       500:
- *         description: Произошла внутренняя ошибка сервера
- *         schema:
- *           $ref: '#/definitions/Error'
- */
-docRouter.post('/addWatch', require("./handlers/addWatch"));
-//TODO:вообще этот запрос не нужен даже, просмотр добавляется при просмотре документа(получение документа)
-
-/**
- * @swagger
  * /documents/addPart:
  *   post:
  *     tags:

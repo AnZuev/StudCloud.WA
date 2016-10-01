@@ -1,20 +1,26 @@
 'use strict';
 const log = require(appRoot + '/libs/log');
 const UAMS = require('@anzuev/studcloud.uams');
-const SSO = require('@anzuev/studcloud.sso');
-const AuthError = require("@anzuev/studcloud.errors").AuthError;
+const Mongoose = require('mongoose');
+const ValidationError = require("@anzuev/studcloud.errors").ValidationError;
+const RDS = require('@anzuev/studcloud.rds');
+const UI = RDS.getUniversityModel();
+
 
 module.exports = function*(next){
+    let faculty;
     try {
-        let faculty = this.request.body.faculty;
+        faculty = Mongoose.Types.ObjectId(this.request.body.faculty);
+    } catch (e){
+        throw new ValidationError(400, "Bad faculty id");
+    }
+    if (yield UI.isExist(this.user.pubInform.university, faculty)) {
         yield next;
         this.user.changeFaculty(faculty);
         yield this.user.saveUser();
         this.body = {result: "ok"};
         this.status = 200;
-    }catch (err) {
-        if (err.code == 401) throw new AuthError(401);
-        log.info(err);
-        throw(err);
+    } else {
+        throw new ValidationError(400, "No such faculty in this university");
     }
 };

@@ -10,8 +10,6 @@ function* preLogin(next){
 		let mail = this.request.body.mail;
 		let password = this.request.body.password;
 		if(!mail || !password || mail == undefined){ // TODO: странное выражение, можно упростить
-			// что-то не передано
-			// кидаем ошибку
 			let error = new ValidationError(400, "Not enough data to process signIn");
 			log.error(error);
 			throw error;
@@ -23,9 +21,12 @@ function* preLogin(next){
 		};
 		yield next;
 
-
-		// TODO: сюда нужно юзера тоже отдавать, посмотри как было до этого на старом сваггере
-		this.body = {result: "ok"};
+		this.body = {
+			id: this.user._id,
+			name: this.user.pubInform.name,
+			surname: this.user.pubInform.surname,
+			mail: this.user.auth.mail
+		};
 	}catch(e){
 		log.error(e);
 		throw e;

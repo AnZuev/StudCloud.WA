@@ -1,10 +1,8 @@
 'use strict';
 const Router = require('koa-router');
 
-// создаем новый роутер
 let wtRouter = new Router();
 
-// добавляем префикс
 wtRouter.prefix("/workTypes");
 
 /*

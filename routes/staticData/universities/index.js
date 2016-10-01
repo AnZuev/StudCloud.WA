@@ -1,14 +1,7 @@
 'use strict';
 const Router = require('koa-router');
-
-// создаем новый роутер
 let univerRouter = new Router();
-
-// добавляем префикс
 univerRouter.prefix("/universities");
-
-// обычная обработка запроса
-
 
 /*
  *  TODO: здесь нам нужны только запросы получения университетов или факультетов, все остальное я скопировал в админку

@@ -209,7 +209,7 @@ authRouter.post("/setNewPassword", require("./handlers/setNewPassword"));
 /**
  * @swagger
  * /auth/confirmPasswordToken:
- *   post:
+ *   get:
  *     tags:
  *       - Auth
  *     description: Check key, which was sent to user's mail
@@ -240,7 +240,7 @@ authRouter.post("/setNewPassword", require("./handlers/setNewPassword"));
  *         schema:
  *            $ref: '#/definitions/Error'
  */
-authRouter.post("/confirmPasswordToken", require("./handlers/confirmPasswordToken"));
+authRouter.get("/confirmPasswordToken", require("./handlers/confirmPasswordToken"));
 
 /**
  * @swagger
