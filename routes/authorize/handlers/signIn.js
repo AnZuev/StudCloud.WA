@@ -9,7 +9,7 @@ function* preLogin(next){
 	try{
 		let mail = this.request.body.mail;
 		let password = this.request.body.password;
-		if(!mail || !password || mail == undefined){ // TODO: странное выражение, можно упростить
+		if(!mail || !password || mail == undefined){
 			let error = new ValidationError(400, "Not enough data to process signIn");
 			log.error(error);
 			throw error;
@@ -20,7 +20,7 @@ function* preLogin(next){
 			password: password
 		};
 		yield next;
-
+		log.trace(this.user);
 		this.body = {
 			id: this.user._id,
 			name: this.user.pubInform.name,

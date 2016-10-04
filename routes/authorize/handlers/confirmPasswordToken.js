@@ -6,11 +6,12 @@ const Notify = require('@anzuev/notify');
 const mailBoxes = require(appRoot + '/config/mailBoxes');
 const ValidationError = require("@anzuev/studcloud.errors").ValidationError;
 
+
 module.exports = function* () {
     let mail,key;
     try {
-        mail = this.query.body.mail;
-        key = this.query.body.key;
+        mail = this.request.query.mail;
+        key = this.request.query.key;
     }catch (e) {
         throw new ValidationError(400, "Not enough data");
     }

@@ -29,7 +29,7 @@
     "koa-bodyparser": "^2.2.0",
     "koa-json-logger": "latest",
     "koa-router": "^5.4.0",
-    "log4js": "^0.6.37",
+    "log4js": "0.5.0 - 0.6.37",
     "mongodb": "^2.1.18",
     "mongoose": "^4.6.1",
     "mz": "^2.4.0",
@@ -38,7 +38,7 @@
     "util": "^0.10.3",
     "winston": "^2.2.0"
   },
-  "devDependencies": {
+  "devDependencies":   {
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",
     "gulp-convert": "^0.2.0",
