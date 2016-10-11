@@ -13,7 +13,7 @@ module.exports = function*(){
         throw new ValidationError(400, "Not enough data");
     }
 
-    if (document.title.length < 1) throw new ValidationError(400, "Too short title");
+    if (!document.title || document.title.length < 1) throw new ValidationError(400, "Too short title");
     else {
         // далее идут проверки на наличие данных, если один из аргументов неопределен, или вовсе отсутствует то выражение равняется 0
         // сначала смотрим на данные в запросе, если юзер хочет "перекрыть" свои данные, для добавления док-а не своего уника
@@ -23,7 +23,7 @@ module.exports = function*(){
         // log.trace(condition1 + " + " + condition2);
         if (condition1) {
             document.author = this.session.user;
-            document.description = this.request.body.description;
+            document.description = this.request.body.description || "";
             document.search.cType = this.request.body.search.type;
             document.search.subject = this.request.body.search.subject;
             document.search.universities = this.request.body.search.university;
@@ -32,7 +32,7 @@ module.exports = function*(){
         } else {
             if (condition2) {
                 document.author = this.session.user;
-                document.description = this.request.body.description;
+                document.description = this.request.body.description || "";
                 document.search.cType = this.request.body.search.type;
                 document.search.subject = this.request.body.search.subject;
                 document.search.universities = this.user.pubInform.university;

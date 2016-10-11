@@ -4,6 +4,8 @@ const BZ = require('@anzuev/knowbase');
 const BI = BZ.getModel();
 const ValidationError = require("@anzuev/studcloud.errors").ValidationError;
 const Mongoose = require('mongoose');
+const UAMS = require('@anzuev/studcloud.uams');
+const RDS = require('@anzuev/studcloud.rds');
 
 module.exports = function*(){
     let id;
@@ -15,6 +17,6 @@ module.exports = function*(){
     let res = yield BI.getById(id);
     if(!res || res.length == 0)
         throw new ValidationError(204,"No such document");
-    this.body = res;
+    this.body = yield res.formatToSearch(UAMS, RDS.getWorkTypeModel(), this.user);
     this.status = 200;
 };
