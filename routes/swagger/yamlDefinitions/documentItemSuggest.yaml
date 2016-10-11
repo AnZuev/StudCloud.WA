@@ -6,6 +6,9 @@ properties:
   title:
     type: string
     description: Название документа
+  description:
+      type: string
+      description: Описание содержимого документа
   author:
     type: object
     description: Кто добавил

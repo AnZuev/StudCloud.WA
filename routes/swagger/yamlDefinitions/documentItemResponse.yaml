@@ -6,6 +6,9 @@ properties:
   title:
     type: string
     description: Название документа
+  description:
+      type: string
+      description: Описание содержимого документа
   parts:
     type: array
     description: Массив файлов статики
@@ -15,9 +18,12 @@ properties:
     type: object
     description: Кто добавил
     properties:
+      username:
+        type: string
+        description: username того, кто добавил документ
       id:
         type: string
-        description: id юзера, который добавил
+        description: id юзера, который добавил документ
   social:
     type: object
     properties:
@@ -36,7 +42,3 @@ properties:
   created:
     type: string
     description: Дата добавления
-  comments:
-    type: array
-    items:
-      $ref: '#/definitions/commentItem'

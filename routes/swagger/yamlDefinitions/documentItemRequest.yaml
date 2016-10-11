@@ -3,6 +3,9 @@ properties:
   title:
     type: string
     description: Название документа
+  description:
+    type: string
+    description: Описание содержимого документа
   search:
     type: object
     description: Информация для поиска

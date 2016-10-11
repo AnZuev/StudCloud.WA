@@ -23,6 +23,7 @@ module.exports = function*(){
         // log.trace(condition1 + " + " + condition2);
         if (condition1) {
             document.author = this.session.user;
+            document.description = this.request.body.description;
             document.search.cType = this.request.body.search.type;
             document.search.subject = this.request.body.search.subject;
             document.search.universities = this.request.body.search.university;
@@ -31,6 +32,7 @@ module.exports = function*(){
         } else {
             if (condition2) {
                 document.author = this.session.user;
+                document.description = this.request.body.description;
                 document.search.cType = this.request.body.search.type;
                 document.search.subject = this.request.body.search.subject;
                 document.search.universities = this.user.pubInform.university;
